@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>801116319608-r341ntm8e1nfblsjjm1na5ukj00p9vgq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.801116319608-r341ntm8e1nfblsjjm1na5ukj00p9vgq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAzQ11-1IV7bGQo6e99dNlXulEDWSTBukw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>801116319608</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lukepatterson.WhatsInTheCaf</string>
+	<key>PROJECT_ID</key>
+	<string>whatsinthecaf-1c3be</string>
+	<key>STORAGE_BUCKET</key>
+	<string>whatsinthecaf-1c3be.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:801116319608:ios:7210606507087382</string>
+	<key>DATABASE_URL</key>
+	<string>https://whatsinthecaf-1c3be.firebaseio.com</string>
+</dict>
+</plist>

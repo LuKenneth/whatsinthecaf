@@ -12,5 +12,5 @@
 
 #endif /* BridgingHeader_h */
 
-#import <Parse/Parse.h>
-#import <ParseUI/ParseUI.h>
+#import <MailCore/MailCore.h>
+#import <GoogleSignIn/GoogleSignIn.h>

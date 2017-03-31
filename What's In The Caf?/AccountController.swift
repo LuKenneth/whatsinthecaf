@@ -31,22 +31,69 @@ class AccountController: UIViewController, UIAlertViewDelegate {
     }
     
     @IBAction func signInTapped(_ sender: AnyObject) {
+        if let email = emailSignInField.text  {
+            
+            if let password = passwordSignInField.text {
+                
+                FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+                    
+                    if let error = error {
+                        self.presentAlert(title: "Error", message: error.localizedDescription, buttonTitle: "Okay", responder: nil, action: nil)
+                    } else {
+                        //sign in success
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+            
+        }
         
     }
     
     @IBAction func signUpAction(_ sender: AnyObject) {
+        
+        if(validateEmail() && validatePassword()) {
+            
+            FIRAuth.auth()?.createUser(withEmail: emailSignUpField.text!, password: passwordSignUpField.text!) { (user, error) in
+            
+                if let error = error {
+                    self.presentAlert(title: "Error", message: error.localizedDescription, buttonTitle: "Okay", responder: nil, action: nil)
+                } else {
+                    FIRAuth.auth()?.signIn(withEmail: self.emailSignUpField.text!, password: self.passwordSignUpField.text!) { (user, error) in
+                        
+                        if let error = error {
+                            self.presentAlert(title: "Error", message: error.localizedDescription, buttonTitle: "Okay", responder: nil, action: nil)
+                        } else {
+                            //sign in success
+                            //send email
+                            if let newUser = user {
+                                newUser.sendEmailVerification(completion: { (error) in
+                                    if let error = error {
+                                        print(error.localizedDescription)
+                                    }
+                                })
+                            }
+                            
+
+                        }
+                    }
+                    let buttonAction = UIAlertAction(title: "Okay", style: .default, handler: { (action) in
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                    self.presentAlert(title: "Success", message: "Account successfully created. Please verify your email.", buttonTitle: "Okay", responder: nil, action: buttonAction)
+                    
+                }
+            }
+        }
     }
     
-    func validateEmail() {
+    func validateEmail() -> Bool{
         
         if(!(emailSignUpField.text?.contains("@jcu.edu"))!) {
-            let alertController: UIAlertController = UIAlertController(title: "Error", message: "Please register with a JCU affiliated email address (@jcu.edu)", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: { 
-                self.emailSignUpField.becomeFirstResponder()
-            })
-            
+            self.presentAlert(title: "Error", message: "Please register with a JCU affiliated email address (@jcu.edu)", buttonTitle: "Okay", responder: self.emailSignUpField, action: nil)
+            emailSignUpField.text = "@jcu.edu"
         }
+        return true
     }
     
     func emailTextChanged() {
@@ -61,6 +108,40 @@ class AccountController: UIViewController, UIAlertViewDelegate {
             emailString = emailSignInField.text! + "@jcu.edu"
             emailSignInField.text = emailString
         }
+        
+    }
+    
+    func validatePassword() -> Bool {
+        
+        if let password = passwordSignUpField.text {
+            if let confirm = confirmPasswordField.text {
+                
+                if(password==confirm) {
+                    return true
+                }
+                
+            }
+        }
+        return false
+        
+    }
+    
+    func presentAlert(title: String, message: String, buttonTitle: String, responder: UITextField?, action: UIAlertAction?) {
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if let buttonAction = action {
+            alertController.addAction(buttonAction)
+        }else {
+            alertController.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+        }
+        
+        
+        self.present(alertController, animated: true, completion: {
+            if let responderField = responder  {
+                responderField.becomeFirstResponder()
+            }
+            
+        })
+
         
     }
     

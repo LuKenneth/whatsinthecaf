@@ -13,4 +13,3 @@
 #endif /* BridgingHeader_h */
 
 #import <MailCore/MailCore.h>
-#import <GoogleSignIn/GoogleSignIn.h>

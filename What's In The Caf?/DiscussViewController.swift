@@ -17,7 +17,12 @@ class DiscussViewController: UIViewController {
         let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             
             if FIRAuth.auth()?.currentUser != nil {
-                self.continueWithLoad()
+                if FIRAuth.auth()?.currentUser?.isEmailVerified == true {
+                    self.continueWithLoad()
+                }
+                else {
+                    self.presentAlert(title: "Verify Email", message: "Please verify your email to continue", buttonTitle: "Fine...", responder: nil)
+                }
             } else {
                 let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let accountVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "account")
@@ -27,7 +32,72 @@ class DiscussViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
+            
+            if FIRAuth.auth()?.currentUser != nil {
+                if FIRAuth.auth()?.currentUser?.isEmailVerified == true {
+                    //dont have to reload on viewDidAppear
+                    //self.continueWithLoad()
+                }
+                else {
+                    self.presentAlert(title: "Verify Email", message: "Please verify your email to continue", buttonTitle: "Fine...", responder: nil)
+                }
+            } else {
+                let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let accountVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "account")
+                self.present(accountVC, animated: true, completion: nil)
+                
+            }
+        }
+
+    }
+    
     func continueWithLoad() {
+        
+        
+    }
+    
+    func signOut() {
+        
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func presentAlert(title: String, message: String, buttonTitle: String, responder: UITextField?) {
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { (action) in
+            
+            let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
+                
+                if FIRAuth.auth()?.currentUser != nil {
+                    FIRAuth.auth()?.currentUser?.reload(completion: { (error) in
+                        if let loadError = error {
+                            self.presentAlert(title: "Error", message: loadError.localizedDescription, buttonTitle: "Okay", responder: nil)
+                        }
+                        else {
+                            if FIRAuth.auth()?.currentUser?.isEmailVerified == false {
+                                self.presentAlert(title: title, message: message, buttonTitle: buttonTitle, responder: responder)
+                            }
+                        }
+                    })
+                    
+                }
+            }
+            
+            
+        }))
+        
+        self.present(alertController, animated: true, completion: {
+            if let responderField = responder  {
+                responderField.becomeFirstResponder()
+            }
+            
+        })
         
         
     }

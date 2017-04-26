@@ -10,8 +10,6 @@
 #define BridgingHeader_h
 
 #import <Foundation/Foundation.h>
-#import <MailCore/MailCore.h>
-
 
 #import "TFHpple.h"
 #import "TFHppleElement.h"

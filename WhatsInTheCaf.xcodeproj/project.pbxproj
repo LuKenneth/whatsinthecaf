@@ -18,6 +18,28 @@
 		A30967451BC59E6400B7F240 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A309673E1BC59E6400B7F240 /* Main.storyboard */; };
 		A30967471BC59E6400B7F240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30967401BC59E6400B7F240 /* AppDelegate.swift */; };
 		A30967481BC59E6400B7F240 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30967411BC59E6400B7F240 /* LaunchScreen.xib */; };
+		A326E3741EAE4CE9001D5C2D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A326E3731EAE4CE9001D5C2D /* CFNetwork.framework */; };
+		A326E3771EAE6B15001D5C2D /* FoodGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326E3761EAE6B15001D5C2D /* FoodGrabber.swift */; };
+		A326E3881EAE6C3B001D5C2D /* IntentsUI.framework in Resources */ = {isa = PBXBuildFile; fileRef = A32F18C91EA9934700B935DA /* IntentsUI.framework */; };
+		A326E3891EAE6D86001D5C2D /* FoodGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326E3761EAE6B15001D5C2D /* FoodGrabber.swift */; };
+		A326E38A1EAE6D8A001D5C2D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F18C11EA9934700B935DA /* IntentHandler.swift */; };
+		A326E3A01EAE8299001D5C2D /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A326E39B1EAE8299001D5C2D /* TFHpple.m */; };
+		A326E3A11EAE8299001D5C2D /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A326E39B1EAE8299001D5C2D /* TFHpple.m */; };
+		A326E3A21EAE8299001D5C2D /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A326E39D1EAE8299001D5C2D /* TFHppleElement.m */; };
+		A326E3A31EAE8299001D5C2D /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A326E39D1EAE8299001D5C2D /* TFHppleElement.m */; };
+		A326E3A41EAE8299001D5C2D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A326E39F1EAE8299001D5C2D /* XPathQuery.m */; };
+		A326E3A51EAE8299001D5C2D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A326E39F1EAE8299001D5C2D /* XPathQuery.m */; };
+		A32F18C21EA9934700B935DA /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F18C11EA9934700B935DA /* IntentHandler.swift */; };
+		A32F18CA1EA9934700B935DA /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32F18C91EA9934700B935DA /* IntentsUI.framework */; };
+		A32F18CD1EA9934700B935DA /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F18CC1EA9934700B935DA /* IntentViewController.swift */; };
+		A32F18D01EA9934700B935DA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32F18CE1EA9934700B935DA /* MainInterface.storyboard */; };
+		A32F18D41EA9934700B935DA /* WhatsInTheCafIntentsUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A32F18C81EA9934700B935DA /* WhatsInTheCafIntentsUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A32F18D71EA9934700B935DA /* WhatsInTheCafIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A32F18BF1EA9934700B935DA /* WhatsInTheCafIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A338E0801EB10CF500EA0A34 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A338E07F1EB10CF500EA0A34 /* FirebaseAnalytics.framework */; };
+		A338E0811EB1111500EA0A34 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A369057F1EA9981E0051BEDA /* libxml2.2.tbd */; };
+		A338E0821EB1111500EA0A34 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A36905801EA9981E0051BEDA /* libxml2.tbd */; };
+		A338E0831EB1112000EA0A34 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A369057F1EA9981E0051BEDA /* libxml2.2.tbd */; };
+		A338E0841EB1112000EA0A34 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A36905801EA9981E0051BEDA /* libxml2.tbd */; };
 		A339D7511E294BEE00E887AA /* DiscussViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A339D7501E294BEE00E887AA /* DiscussViewController.swift */; };
 		A3583FDD1E37EB9400D62BA8 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3583FDC1E37EB9400D62BA8 /* AccountController.swift */; };
 		C4E4DB7B16E33D13D8C225A5 /* Pods_WhatsInTheCafTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE2F31B22F00282FC69D65 /* Pods_WhatsInTheCafTests.framework */; };
@@ -40,10 +62,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A32F18DE1EA9934700B935DA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A32F18D71EA9934700B935DA /* WhatsInTheCafIntents.appex in Embed App Extensions */,
+				A32F18D41EA9934700B935DA /* WhatsInTheCafIntentsUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0D71EE38FA7FA0A844154962 /* Pods-WhatsInTheCafTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsInTheCafTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsInTheCafTests/Pods-WhatsInTheCafTests.release.xcconfig"; sourceTree = "<group>"; };
 		4504FC24FF5E4D8132468E0E /* Pods-WhatsInTheCafUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsInTheCafUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsInTheCafUITests/Pods-WhatsInTheCafUITests.release.xcconfig"; sourceTree = "<group>"; };
 		75F8E3A06976CD106140B70D /* Pods-WhatsInTheCaf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsInTheCaf.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsInTheCaf/Pods-WhatsInTheCaf.debug.xcconfig"; sourceTree = "<group>"; };
+		79CD3EFC9AD9D6810B40522C /* Pods_WhatsInTheCafIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCafIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9684818952715A38359335A7 /* Pods_WhatsInTheCafIntentsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCafIntentsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30083291DAC4D2E00108F6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3018D5E1D9C8CC100F35597 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		A30967081BC59D8000B7F240 /* WhatsInTheCaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsInTheCaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,8 +99,29 @@
 		A30967401BC59E6400B7F240 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A30967411BC59E6400B7F240 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		A30967801BC5A00500B7F240 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		A326E3731EAE4CE9001D5C2D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A326E3761EAE6B15001D5C2D /* FoodGrabber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodGrabber.swift; sourceTree = "<group>"; };
+		A326E3991EAE8297001D5C2D /* WhatsInTheCaf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhatsInTheCaf-Bridging-Header.h"; sourceTree = "<group>"; };
+		A326E39A1EAE8299001D5C2D /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		A326E39B1EAE8299001D5C2D /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		A326E39C1EAE8299001D5C2D /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		A326E39D1EAE8299001D5C2D /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		A326E39E1EAE8299001D5C2D /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		A326E39F1EAE8299001D5C2D /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		A32F18BA1EA9931600B935DA /* WhatsInTheCaf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhatsInTheCaf.entitlements; sourceTree = "<group>"; };
+		A32F18BF1EA9934700B935DA /* WhatsInTheCafIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WhatsInTheCafIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A32F18C11EA9934700B935DA /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		A32F18C31EA9934700B935DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A32F18C81EA9934700B935DA /* WhatsInTheCafIntentsUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WhatsInTheCafIntentsUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A32F18C91EA9934700B935DA /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		A32F18CC1EA9934700B935DA /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		A32F18CF1EA9934700B935DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A32F18D11EA9934700B935DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A338E07F1EB10CF500EA0A34 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		A339D7501E294BEE00E887AA /* DiscussViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussViewController.swift; sourceTree = "<group>"; };
 		A3583FDC1E37EB9400D62BA8 /* AccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		A369057F1EA9981E0051BEDA /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		A36905801EA9981E0051BEDA /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		ADAA132B976B88281280FC23 /* Pods_WhatsInTheCaf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCaf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCEE2F31B22F00282FC69D65 /* Pods_WhatsInTheCafTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCafTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD7DE5F92D8CD1036E182A5 /* Pods_WhatsInTheCafUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCafUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +135,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A338E0811EB1111500EA0A34 /* libxml2.2.tbd in Frameworks */,
+				A338E0821EB1111500EA0A34 /* libxml2.tbd in Frameworks */,
+				A338E0801EB10CF500EA0A34 /* FirebaseAnalytics.framework in Frameworks */,
+				A326E3741EAE4CE9001D5C2D /* CFNetwork.framework in Frameworks */,
 				5BD9FDDC34150B1627B3A23E /* Pods_WhatsInTheCaf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,17 +159,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A32F18BC1EA9934700B935DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A338E0831EB1112000EA0A34 /* libxml2.2.tbd in Frameworks */,
+				A338E0841EB1112000EA0A34 /* libxml2.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32F18C51EA9934700B935DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32F18CA1EA9934700B935DA /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A30966FF1BC59D8000B7F240 = {
 			isa = PBXGroup;
 			children = (
+				A32F18BA1EA9931600B935DA /* WhatsInTheCaf.entitlements */,
 				A30083291DAC4D2E00108F6C /* GoogleService-Info.plist */,
 				A30967801BC5A00500B7F240 /* BridgingHeader.h */,
 				A309670A1BC59D8000B7F240 /* What's In The Caf? */,
 				A309671F1BC59D8000B7F240 /* What's In The Caf?Tests */,
 				A309672A1BC59D8000B7F240 /* What's In The Caf?UITests */,
+				A32F18C01EA9934700B935DA /* WhatsInTheCafIntents */,
+				A32F18CB1EA9934700B935DA /* WhatsInTheCafIntentsUI */,
 				A30967091BC59D8000B7F240 /* Products */,
 				F3B4B6A01411DE09DA75BA30 /* Pods */,
 				DC397C685DF1F6B6B5470ED5 /* Frameworks */,
@@ -118,6 +202,8 @@
 				A30967081BC59D8000B7F240 /* WhatsInTheCaf.app */,
 				A309671C1BC59D8000B7F240 /* WhatsInTheCaf.xctest */,
 				A30967271BC59D8000B7F240 /* WhatsInTheCaf.xctest */,
+				A32F18BF1EA9934700B935DA /* WhatsInTheCafIntents.appex */,
+				A32F18C81EA9934700B935DA /* WhatsInTheCafIntentsUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,12 +242,54 @@
 			path = "What's In The Caf?UITests";
 			sourceTree = "<group>";
 		};
+		A326E3821EAE6BAB001D5C2D /* TFHpple */ = {
+			isa = PBXGroup;
+			children = (
+				A326E39A1EAE8299001D5C2D /* TFHpple.h */,
+				A326E39B1EAE8299001D5C2D /* TFHpple.m */,
+				A326E39C1EAE8299001D5C2D /* TFHppleElement.h */,
+				A326E39D1EAE8299001D5C2D /* TFHppleElement.m */,
+				A326E39E1EAE8299001D5C2D /* XPathQuery.h */,
+				A326E39F1EAE8299001D5C2D /* XPathQuery.m */,
+			);
+			name = TFHpple;
+			sourceTree = "<group>";
+		};
+		A32F18C01EA9934700B935DA /* WhatsInTheCafIntents */ = {
+			isa = PBXGroup;
+			children = (
+				A326E3821EAE6BAB001D5C2D /* TFHpple */,
+				A326E3761EAE6B15001D5C2D /* FoodGrabber.swift */,
+				A326E3991EAE8297001D5C2D /* WhatsInTheCaf-Bridging-Header.h */,
+				A32F18C11EA9934700B935DA /* IntentHandler.swift */,
+				A32F18C31EA9934700B935DA /* Info.plist */,
+			);
+			path = WhatsInTheCafIntents;
+			sourceTree = "<group>";
+		};
+		A32F18CB1EA9934700B935DA /* WhatsInTheCafIntentsUI */ = {
+			isa = PBXGroup;
+			children = (
+				A32F18CC1EA9934700B935DA /* IntentViewController.swift */,
+				A32F18CE1EA9934700B935DA /* MainInterface.storyboard */,
+				A32F18D11EA9934700B935DA /* Info.plist */,
+			);
+			path = WhatsInTheCafIntentsUI;
+			sourceTree = "<group>";
+		};
 		DC397C685DF1F6B6B5470ED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A338E07F1EB10CF500EA0A34 /* FirebaseAnalytics.framework */,
+				A326E3731EAE4CE9001D5C2D /* CFNetwork.framework */,
+				A369057F1EA9981E0051BEDA /* libxml2.2.tbd */,
+				A36905801EA9981E0051BEDA /* libxml2.tbd */,
 				ADAA132B976B88281280FC23 /* Pods_WhatsInTheCaf.framework */,
 				BCEE2F31B22F00282FC69D65 /* Pods_WhatsInTheCafTests.framework */,
 				DCD7DE5F92D8CD1036E182A5 /* Pods_WhatsInTheCafUITests.framework */,
+				A32F18C91EA9934700B935DA /* IntentsUI.framework */,
+				79CD3EFC9AD9D6810B40522C /* Pods_WhatsInTheCafIntents.framework */,
+				9684818952715A38359335A7 /* Pods_WhatsInTheCafIntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,6 +320,7 @@
 				A30967061BC59D8000B7F240 /* Resources */,
 				900ECA05D31FB9649F72EBD1 /* [CP] Embed Pods Frameworks */,
 				E82BB03642931AB9546A3D57 /* [CP] Copy Pods Resources */,
+				A32F18DE1EA9934700B935DA /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -244,6 +373,40 @@
 			productReference = A30967271BC59D8000B7F240 /* WhatsInTheCaf.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A32F18BE1EA9934700B935DA /* WhatsInTheCafIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A32F18DB1EA9934700B935DA /* Build configuration list for PBXNativeTarget "WhatsInTheCafIntents" */;
+			buildPhases = (
+				A32F18BB1EA9934700B935DA /* Sources */,
+				A32F18BC1EA9934700B935DA /* Frameworks */,
+				A32F18BD1EA9934700B935DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhatsInTheCafIntents;
+			productName = WhatsInTheCafIntents;
+			productReference = A32F18BF1EA9934700B935DA /* WhatsInTheCafIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A32F18C71EA9934700B935DA /* WhatsInTheCafIntentsUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A32F18D81EA9934700B935DA /* Build configuration list for PBXNativeTarget "WhatsInTheCafIntentsUI" */;
+			buildPhases = (
+				A32F18C41EA9934700B935DA /* Sources */,
+				A32F18C51EA9934700B935DA /* Frameworks */,
+				A32F18C61EA9934700B935DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhatsInTheCafIntentsUI;
+			productName = WhatsInTheCafIntentsUI;
+			productReference = A32F18C81EA9934700B935DA /* WhatsInTheCafIntentsUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -251,6 +414,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Luke Patterson";
 				TargetAttributes = {
@@ -258,6 +422,11 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = VF2596BARK;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 					A309671B1BC59D8000B7F240 = {
 						CreatedOnToolsVersion = 7.0;
@@ -268,6 +437,16 @@
 						CreatedOnToolsVersion = 7.0;
 						LastSwiftMigration = 0820;
 						TestTargetID = A30967071BC59D8000B7F240;
+					};
+					A32F18BE1EA9934700B935DA = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = VF2596BARK;
+						ProvisioningStyle = Automatic;
+					};
+					A32F18C71EA9934700B935DA = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = VF2596BARK;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -287,6 +466,8 @@
 				A30967071BC59D8000B7F240 /* WhatsInTheCaf */,
 				A309671B1BC59D8000B7F240 /* WhatsInTheCafTests */,
 				A30967261BC59D8000B7F240 /* WhatsInTheCafUITests */,
+				A32F18BE1EA9934700B935DA /* WhatsInTheCafIntents */,
+				A32F18C71EA9934700B935DA /* WhatsInTheCafIntentsUI */,
 			);
 		};
 /* End PBXProject section */
@@ -314,6 +495,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32F18BD1EA9934700B935DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A326E3881EAE6C3B001D5C2D /* IntentsUI.framework in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32F18C61EA9934700B935DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32F18D01EA9934700B935DA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,10 +660,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30967471BC59E6400B7F240 /* AppDelegate.swift in Sources */,
+				A326E3891EAE6D86001D5C2D /* FoodGrabber.swift in Sources */,
+				A326E3A41EAE8299001D5C2D /* XPathQuery.m in Sources */,
 				A3583FDD1E37EB9400D62BA8 /* AccountController.swift in Sources */,
+				A326E38A1EAE6D8A001D5C2D /* IntentHandler.swift in Sources */,
 				A3018D5F1D9C8CC100F35597 /* FeedbackViewController.swift in Sources */,
 				A309673A1BC59E0D00B7F240 /* MainScreen.swift in Sources */,
+				A326E3A21EAE8299001D5C2D /* TFHppleElement.m in Sources */,
 				A339D7511E294BEE00E887AA /* DiscussViewController.swift in Sources */,
+				A326E3A01EAE8299001D5C2D /* TFHpple.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +688,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A32F18BB1EA9934700B935DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A326E3A31EAE8299001D5C2D /* TFHppleElement.m in Sources */,
+				A32F18C21EA9934700B935DA /* IntentHandler.swift in Sources */,
+				A326E3A51EAE8299001D5C2D /* XPathQuery.m in Sources */,
+				A326E3A11EAE8299001D5C2D /* TFHpple.m in Sources */,
+				A326E3771EAE6B15001D5C2D /* FoodGrabber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32F18C41EA9934700B935DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32F18CD1EA9934700B935DA /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -500,6 +722,17 @@
 			targetProxy = A30967281BC59D8000B7F240 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A32F18CE1EA9934700B935DA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A32F18CF1EA9934700B935DA /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A309672E1BC59D8000B7F240 /* Debug */ = {
@@ -526,10 +759,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/Luke/Desktop/iOS\\ App\\ Making/SDKs/parse-library-1",
-					"/Users/Luke/Desktop/iOS\\ App\\ Making/GoogleMobileAdsSdkiOS-7.4.0",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -548,7 +778,7 @@
 					"$(SRCROOT)",
 					"$(inherited)",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -581,10 +811,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/Luke/Desktop/iOS\\ App\\ Making/SDKs/parse-library-1",
-					"/Users/Luke/Desktop/iOS\\ App\\ Making/GoogleMobileAdsSdkiOS-7.4.0",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -597,7 +824,7 @@
 					"$(SRCROOT)",
 					"$(inherited)",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/Luke/Desktop/iOS App Making/What's In The Caf?/BridgingHeader.h";
@@ -610,18 +837,92 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75F8E3A06976CD106140B70D /* Pods-WhatsInTheCaf.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WhatsInTheCaf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks/frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Headers",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios\"",
+					"$(SKDROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "What's In The Caf?/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MailCore-ios\"",
+					"-l\"c++\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AdSupport\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"GoogleInterchangeUtilities\"",
+					"-framework",
+					"\"GoogleNetworkingUtilities\"",
+					"-framework",
+					"\"GoogleParsingUtilities\"",
+					"-framework",
+					"\"GoogleSymbolUtilities\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf;
 				PRODUCT_NAME = WhatsInTheCaf;
+				SWIFT_OBJC_BRIDGING_HEADER = "WhatsInTheCafIntents/WhatsInTheCaf-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/Luke/Desktop/iOS App Making/What's In The Caf?/BridgingHeader.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -630,17 +931,90 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF0EA032BBF1C19D79229EDF /* Pods-WhatsInTheCaf.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WhatsInTheCaf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks/frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Headers",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios\"",
+					"$(SKDROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "What's In The Caf?/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MailCore-ios\"",
+					"-l\"c++\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AdSupport\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"GoogleInterchangeUtilities\"",
+					"-framework",
+					"\"GoogleNetworkingUtilities\"",
+					"-framework",
+					"\"GoogleParsingUtilities\"",
+					"-framework",
+					"\"GoogleSymbolUtilities\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf;
 				PRODUCT_NAME = WhatsInTheCaf;
+				SWIFT_OBJC_BRIDGING_HEADER = "WhatsInTheCafIntents/WhatsInTheCaf-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/Luke/Desktop/iOS App Making/What's In The Caf?/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -710,6 +1084,90 @@
 			};
 			name = Release;
 		};
+		A32F18D91EA9934700B935DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VF2596BARK;
+				INFOPLIST_FILE = WhatsInTheCafIntentsUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf.WhatsInTheCafIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A32F18DA1EA9934700B935DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VF2596BARK;
+				INFOPLIST_FILE = WhatsInTheCafIntentsUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf.WhatsInTheCafIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A32F18DC1EA9934700B935DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VF2596BARK;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = WhatsInTheCafIntents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf.WhatsInTheCafIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WhatsInTheCafIntents/WhatsInTheCaf-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A32F18DD1EA9934700B935DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VF2596BARK;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = WhatsInTheCafIntents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf.WhatsInTheCafIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WhatsInTheCafIntents/WhatsInTheCaf-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -745,6 +1203,24 @@
 			buildConfigurations = (
 				A30967371BC59D8000B7F240 /* Debug */,
 				A30967381BC59D8000B7F240 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A32F18D81EA9934700B935DA /* Build configuration list for PBXNativeTarget "WhatsInTheCafIntentsUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32F18D91EA9934700B935DA /* Debug */,
+				A32F18DA1EA9934700B935DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A32F18DB1EA9934700B935DA /* Build configuration list for PBXNativeTarget "WhatsInTheCafIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32F18DC1EA9934700B935DA /* Debug */,
+				A32F18DD1EA9934700B935DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

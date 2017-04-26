@@ -6,7 +6,7 @@ target 'WhatsInTheCaf' do
   use_frameworks!
 
   # Pods for WhatsInTheCaf
-  pod ‘mailcore2-ios’
+  pod 'mailcore2-ios'
   pod 'Firebase'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
@@ -20,5 +20,25 @@ target 'WhatsInTheCaf' do
     inherit! :search_paths
     # Pods for testing
   end
+  
+#  target 'WhatsInTheCafIntents' do
+#      use_frameworks!
+#      inherit! :search_paths
+#      pod 'mailcore2-ios'
+#      pod 'Firebase'
+#      pod 'Firebase/Database'
+#      pod 'Firebase/Auth'
+#      # Pods for testing
+#  end
+#  
+#  target 'WhatsInTheCafIntentsUI' do
+#      use_frameworks!
+#      inherit! :search_paths
+#      pod 'mailcore2-ios'
+#      pod 'Firebase'
+#      pod 'Firebase/Database'
+#      pod 'Firebase/Auth'
+#      # Pods for testing
+#  end
 
 end

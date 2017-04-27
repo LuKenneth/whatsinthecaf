@@ -72,6 +72,17 @@ class AccountController: UIViewController, UIAlertViewDelegate {
                                         print(error.localizedDescription)
                                     }
                                 })
+                                let changeRequest = newUser.profileChangeRequest()
+                                let email:String = newUser.email!
+                                let index = email.index(email.startIndex, offsetBy: email.characters.count-8)
+                                changeRequest.displayName = email.substring(to: index)
+                                
+                                changeRequest.commitChanges(completion: { (error) in
+                                    if error != nil {
+                                        self.presentAlert(title: "Error", message: "Could not create a display name", buttonTitle: "Okay", responder: nil, action: nil)
+                                    }
+                                    
+                                })
                             }
                             
 

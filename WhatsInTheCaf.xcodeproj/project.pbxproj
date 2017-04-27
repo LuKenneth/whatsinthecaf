@@ -211,12 +211,9 @@
 		A309670A1BC59D8000B7F240 /* What's In The Caf? */ = {
 			isa = PBXGroup;
 			children = (
-				A30967391BC59E0D00B7F240 /* MainScreen.swift */,
-				A3583FDC1E37EB9400D62BA8 /* AccountController.swift */,
-				A339D7501E294BEE00E887AA /* DiscussViewController.swift */,
+				A338E0851EB2B90000EA0A34 /* ViewControllers */,
 				A309673E1BC59E6400B7F240 /* Main.storyboard */,
 				A30967401BC59E6400B7F240 /* AppDelegate.swift */,
-				A3018D5E1D9C8CC100F35597 /* FeedbackViewController.swift */,
 				A30967411BC59E6400B7F240 /* LaunchScreen.xib */,
 				A30967121BC59D8000B7F240 /* Assets.xcassets */,
 				A30967171BC59D8000B7F240 /* Info.plist */,
@@ -275,6 +272,17 @@
 				A32F18D11EA9934700B935DA /* Info.plist */,
 			);
 			path = WhatsInTheCafIntentsUI;
+			sourceTree = "<group>";
+		};
+		A338E0851EB2B90000EA0A34 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3018D5E1D9C8CC100F35597 /* FeedbackViewController.swift */,
+				A30967391BC59E0D00B7F240 /* MainScreen.swift */,
+				A3583FDC1E37EB9400D62BA8 /* AccountController.swift */,
+				A339D7501E294BEE00E887AA /* DiscussViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		DC397C685DF1F6B6B5470ED5 /* Frameworks */ = {

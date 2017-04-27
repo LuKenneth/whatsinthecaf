@@ -9,10 +9,19 @@
 import Foundation
 import Firebase
 
-class DiscussViewController: UIViewController {
+class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var composeText: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
+    var ref: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        composeText.delegate = self
+        ref = FIRDatabase.database().reference()
+        signOut()
         
         let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             
@@ -99,7 +108,18 @@ class DiscussViewController: UIViewController {
             
         })
         
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let idPath = self.ref.child("Posts").childByAutoId()
+        idPath.child("Message").setValue(textField.text!)
+        idPath.child("Likes").setValue(0)
+        idPath.child("User").setValue((FIRAuth.auth()?.currentUser!.displayName!)!)
+        return true
     }
     
 }

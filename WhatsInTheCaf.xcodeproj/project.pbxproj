@@ -18,6 +18,7 @@
 		A30967451BC59E6400B7F240 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A309673E1BC59E6400B7F240 /* Main.storyboard */; };
 		A30967471BC59E6400B7F240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30967401BC59E6400B7F240 /* AppDelegate.swift */; };
 		A30967481BC59E6400B7F240 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30967411BC59E6400B7F240 /* LaunchScreen.xib */; };
+		A3130D4C1EB6D76E004AE9E4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3130D4B1EB6D76E004AE9E4 /* PostCell.swift */; };
 		A326E3741EAE4CE9001D5C2D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A326E3731EAE4CE9001D5C2D /* CFNetwork.framework */; };
 		A326E3771EAE6B15001D5C2D /* FoodGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326E3761EAE6B15001D5C2D /* FoodGrabber.swift */; };
 		A326E3881EAE6C3B001D5C2D /* IntentsUI.framework in Resources */ = {isa = PBXBuildFile; fileRef = A32F18C91EA9934700B935DA /* IntentsUI.framework */; };
@@ -40,6 +41,7 @@
 		A338E0821EB1111500EA0A34 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A36905801EA9981E0051BEDA /* libxml2.tbd */; };
 		A338E0831EB1112000EA0A34 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A369057F1EA9981E0051BEDA /* libxml2.2.tbd */; };
 		A338E0841EB1112000EA0A34 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A36905801EA9981E0051BEDA /* libxml2.tbd */; };
+		A338E0871EB2BA3800EA0A34 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A338E0861EB2BA3800EA0A34 /* Post.swift */; };
 		A339D7511E294BEE00E887AA /* DiscussViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A339D7501E294BEE00E887AA /* DiscussViewController.swift */; };
 		A3583FDD1E37EB9400D62BA8 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3583FDC1E37EB9400D62BA8 /* AccountController.swift */; };
 		C4E4DB7B16E33D13D8C225A5 /* Pods_WhatsInTheCafTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE2F31B22F00282FC69D65 /* Pods_WhatsInTheCafTests.framework */; };
@@ -99,6 +101,7 @@
 		A30967401BC59E6400B7F240 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A30967411BC59E6400B7F240 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		A30967801BC5A00500B7F240 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		A3130D4B1EB6D76E004AE9E4 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A326E3731EAE4CE9001D5C2D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A326E3761EAE6B15001D5C2D /* FoodGrabber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodGrabber.swift; sourceTree = "<group>"; };
 		A326E3991EAE8297001D5C2D /* WhatsInTheCaf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhatsInTheCaf-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		A32F18CF1EA9934700B935DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A32F18D11EA9934700B935DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A338E07F1EB10CF500EA0A34 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		A338E0861EB2BA3800EA0A34 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A339D7501E294BEE00E887AA /* DiscussViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussViewController.swift; sourceTree = "<group>"; };
 		A3583FDC1E37EB9400D62BA8 /* AccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		A369057F1EA9981E0051BEDA /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
@@ -217,6 +221,8 @@
 				A30967411BC59E6400B7F240 /* LaunchScreen.xib */,
 				A30967121BC59D8000B7F240 /* Assets.xcassets */,
 				A30967171BC59D8000B7F240 /* Info.plist */,
+				A338E0861EB2BA3800EA0A34 /* Post.swift */,
+				A3130D4B1EB6D76E004AE9E4 /* PostCell.swift */,
 			);
 			path = "What's In The Caf?";
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30967471BC59E6400B7F240 /* AppDelegate.swift in Sources */,
+				A338E0871EB2BA3800EA0A34 /* Post.swift in Sources */,
 				A326E3891EAE6D86001D5C2D /* FoodGrabber.swift in Sources */,
 				A326E3A41EAE8299001D5C2D /* XPathQuery.m in Sources */,
 				A3583FDD1E37EB9400D62BA8 /* AccountController.swift in Sources */,
@@ -677,6 +684,7 @@
 				A326E3A21EAE8299001D5C2D /* TFHppleElement.m in Sources */,
 				A339D7511E294BEE00E887AA /* DiscussViewController.swift in Sources */,
 				A326E3A01EAE8299001D5C2D /* TFHpple.m in Sources */,
+				A3130D4C1EB6D76E004AE9E4 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

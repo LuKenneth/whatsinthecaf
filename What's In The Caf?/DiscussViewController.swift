@@ -9,19 +9,23 @@
 import Foundation
 import Firebase
 
-class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
+class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var composeText: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     var ref: FIRDatabaseReference!
+    var posts:[Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         composeText.delegate = self
+        tableView.dataSource = self
+        
         ref = FIRDatabase.database().reference()
-        signOut()
+        
+        //signOut()
         
         let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             
@@ -47,7 +51,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             if FIRAuth.auth()?.currentUser != nil {
                 if FIRAuth.auth()?.currentUser?.isEmailVerified == true {
                     //dont have to reload on viewDidAppear
-                    //self.continueWithLoad()
+                    self.continueWithLoad()
                 }
                 else {
                     self.presentAlert(title: "Verify Email", message: "Please verify your email to continue", buttonTitle: "Fine...", responder: nil)
@@ -63,7 +67,21 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     }
     
     func continueWithLoad() {
+        grabPosts{ (posts) in
+            self.posts = posts
+            for post in posts {
+                print(post.message)
+            }
+            self.tableView.reloadData()
+        }
         
+        listenForPosts{ (posts) in
+            self.posts = posts
+            for post in posts {
+                print(post.message)
+            }
+            self.tableView.reloadData()
+        }
         
     }
     
@@ -120,6 +138,59 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         idPath.child("Likes").setValue(0)
         idPath.child("User").setValue((FIRAuth.auth()?.currentUser!.displayName!)!)
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! PostCell
+        cell.messageTextView.text = posts[indexPath.item].message
+        cell.likesTextView.text = String(posts[indexPath.item].likes)
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func grabPosts(callback: @escaping ([Post])->()) {
+        ref.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            self.posts.removeAll()
+            for child in snapshot.children {
+                if let data = child as? FIRDataSnapshot {
+                    let newPost:Post = Post(snapshot: data)
+                
+                    self.posts.append(newPost)
+                }
+            }
+            callback(self.posts)
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+            
+        }
+        
+        
+    }
+    
+    func listenForPosts(callback: @escaping ([Post])->()) {
+        ref.child("Posts").observe(.childChanged, with: { (snapshot) in
+            // Get user value
+            self.posts.removeAll()
+            for child in snapshot.children {
+                if let data = child as? FIRDataSnapshot {
+                    let newPost:Post = Post(snapshot: data)
+                    
+                    self.posts.append(newPost)
+                }
+            }
+            callback(self.posts)
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+            
+        }
+
     }
     
 }

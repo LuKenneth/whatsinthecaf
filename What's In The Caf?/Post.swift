@@ -60,10 +60,4 @@ class Post {
                 "User":self.user as AnyObject]
         
     }
-    
-    
-    
-    
-    
-    
 }

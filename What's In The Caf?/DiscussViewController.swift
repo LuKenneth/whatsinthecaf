@@ -75,13 +75,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             self.tableView.reloadData()
         }
         
-        listenForPosts{ (posts) in
-            self.posts = posts
-            for post in posts {
-                print(post.message)
-            }
-            self.tableView.reloadData()
-        }
+        listenForPosts()
         
     }
     
@@ -142,8 +136,8 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! PostCell
-        cell.messageTextView.text = posts[indexPath.item].message
-        cell.likesTextView.text = String(posts[indexPath.item].likes)
+        cell.messageTextView.text = posts[(posts.count - 1) - indexPath.item].message
+        cell.likesTextView.text = String(posts[(posts.count - 1) - indexPath.item].likes)
         return cell
         
     }
@@ -173,19 +167,15 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
     }
     
-    func listenForPosts(callback: @escaping ([Post])->()) {
+    func listenForPosts() {
         ref.child("Posts").observe(.childChanged, with: { (snapshot) in
-            // Get user value
-            self.posts.removeAll()
-            for child in snapshot.children {
-                if let data = child as? FIRDataSnapshot {
-                    let newPost:Post = Post(snapshot: data)
-                    
-                    self.posts.append(newPost)
+            self.grabPosts{ (posts) in
+                self.posts = posts
+                for post in posts {
+                    print(post.message)
                 }
+                self.tableView.reloadData()
             }
-            callback(self.posts)
-            // ...
         }) { (error) in
             print(error.localizedDescription)
             

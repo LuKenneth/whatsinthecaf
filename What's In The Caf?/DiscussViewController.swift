@@ -16,6 +16,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     @IBOutlet weak var scrollView: UIScrollView!
     var ref: FIRDatabaseReference!
     var posts:[Post] = []
+    var activeField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         tableView.dataSource = self
         
         ref = FIRDatabase.database().reference()
+        registerForKeyboardNotifications()
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
         //signOut()
         
@@ -69,9 +73,9 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     func continueWithLoad() {
         grabPosts{ (posts) in
             self.posts = posts
-            for post in posts {
-                print(post.message)
-            }
+//            for post in posts {
+//                print(post.message)
+//            }
             self.tableView.reloadData()
         }
         
@@ -127,10 +131,19 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let idPath = self.ref.child("Posts").childByAutoId()
-        idPath.child("Message").setValue(textField.text!)
-        idPath.child("Likes").setValue(0)
-        idPath.child("User").setValue((FIRAuth.auth()?.currentUser!.displayName!)!)
+        
+        if((textField.text?.characters.count)! <= 140) {
+            let idPath = self.ref.child("Posts").childByAutoId()
+            idPath.child("Message").setValue(textField.text!)
+            idPath.child("Likes").setValue(0)
+            idPath.child("User").setValue((FIRAuth.auth()?.currentUser!.displayName!)!)
+            textField.text = ""
+        }
+        else {
+            self.presentAlert(title: "Message Too Long", message: "Please limit your post to 140 characters", buttonTitle: "Okay", responder: nil, action: nil)
+        }
+        
+        dismissKeyboard()
         return true
     }
     
@@ -138,6 +151,13 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! PostCell
         cell.messageTextView.text = posts[(posts.count - 1) - indexPath.item].message
         cell.likesTextView.text = String(posts[(posts.count - 1) - indexPath.item].likes)
+        cell.post = posts[(posts.count-1) - indexPath.item]
+        
+//        cell.likesTextView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+//        let textView:UITextView = cell.messageTextView
+//        var topCorrect:CGFloat = (textView.bounds.size.height - textView.contentSize.height * textView.zoomScale)/2.0
+//        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect
+//        textView.contentOffset = CGPoint(x: 0.0, y: -topCorrect)
         return cell
         
     }
@@ -171,9 +191,9 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         ref.child("Posts").observe(.childChanged, with: { (snapshot) in
             self.grabPosts{ (posts) in
                 self.posts = posts
-                for post in posts {
-                    print(post.message)
-                }
+//                for post in posts {
+//                    print(post.message)
+//                }
                 self.tableView.reloadData()
             }
         }) { (error) in
@@ -183,4 +203,78 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
 
     }
     
+    func registerForKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.hideKeyboard), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showKeyboard(notification:)), name: .UIKeyboardDidShow, object: nil)
+    }
+    
+    func hideKeyboard(notification: NSNotification) {
+        guard let info: NSDictionary = notification.userInfo as NSDictionary? else {
+            return
+        }
+        
+        let kbRect: CGRect = info.object(forKey: UIKeyboardFrameBeginUserInfoKey) as! CGRect
+        let kbSize: CGSize = kbRect.size
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -kbSize.height, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        self.view.endEditing(true)
+        self.scrollView.isScrollEnabled = false
+        
+    }
+    
+    func showKeyboard(notification: NSNotification) {
+        guard let info: NSDictionary = notification.userInfo as NSDictionary? else {
+            return
+        }
+        
+        let kbRect: CGRect = info.object(forKey: UIKeyboardFrameBeginUserInfoKey) as! CGRect
+        let kbSize: CGSize = kbRect.size
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        var rect:CGRect = self.view.frame
+        rect.size.height -= kbSize.height
+        if(!rect.contains(activeField.frame.origin)) {
+            let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField.frame.origin.y-(kbSize.height-30)*2)
+            scrollView.setContentOffset(scrollPoint, animated: true)
+            //self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
+    }
+    
+    func dismissKeyboard() {
+        
+        self.view.endEditing(true)
+    }
+    
+    func presentAlert(title: String, message: String, buttonTitle: String, responder: UITextField?, action: UIAlertAction?) {
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if let buttonAction = action {
+            alertController.addAction(buttonAction)
+        }else {
+            alertController.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+        }
+        
+        
+        self.present(alertController, animated: true, completion: {
+            if let responderField = responder  {
+                responderField.becomeFirstResponder()
+            }
+            
+        })
+        
+        
+    }
 }

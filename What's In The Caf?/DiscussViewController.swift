@@ -16,7 +16,10 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     @IBOutlet weak var scrollView: UIScrollView!
     var ref: FIRDatabaseReference!
     var posts:[Post] = []
+    var sortedPosts:[Post] = []
+    var postsToLoad:[Post] = []
     var activeField: UITextField!
+    @IBOutlet weak var sortSwitch: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +51,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             }
         }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             
@@ -148,10 +151,20 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if(sortSwitch.selectedSegmentIndex == 0) {
+            postsToLoad = posts
+        }
+        else {
+            
+            postsToLoad = sortedPosts
+        }
+        
+        
         let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! PostCell
-        cell.messageTextView.text = posts[(posts.count - 1) - indexPath.item].message
-        cell.likesTextView.text = String(posts[(posts.count - 1) - indexPath.item].likes)
-        cell.post = posts[(posts.count-1) - indexPath.item]
+        cell.messageTextView.text = postsToLoad[(postsToLoad.count - 1) - indexPath.item].message
+        cell.likesTextView.text = String(postsToLoad[(postsToLoad.count - 1) - indexPath.item].likes)
+        cell.post = postsToLoad[(postsToLoad.count-1) - indexPath.item]
         
 //        cell.likesTextView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
 //        let textView:UITextView = cell.messageTextView
@@ -237,10 +250,13 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         var rect:CGRect = self.view.frame
         rect.size.height -= kbSize.height
-        if(!rect.contains(activeField.frame.origin)) {
-            let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField.frame.origin.y-(kbSize.height-30)*2)
-            scrollView.setContentOffset(scrollPoint, animated: true)
-            //self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+        
+        if activeField != nil {
+            if(!rect.contains(activeField.frame.origin)) {
+                let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField.frame.origin.y-(kbSize.height-30)*2)
+                scrollView.setContentOffset(scrollPoint, animated: true)
+                //self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
         }
     }
     
@@ -251,7 +267,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        activeField = nil
+        //activeField = nil
     }
     
     func dismissKeyboard() {
@@ -276,5 +292,34 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         })
         
         
+    }
+    @IBAction func changeSort(_ sender: Any) {
+        
+        if(sortSwitch.selectedSegmentIndex == 1) {
+            sortPosts()
+        }
+        self.tableView.reloadData()
+    }
+    
+    func sortPosts() {
+        sortedPosts = posts
+        var tempPost:Post!
+        var swapped = true
+        
+        while(swapped) {
+        
+        swapped = false
+        for index in 0...sortedPosts.count-2 {
+            
+            if sortedPosts[index].likes > sortedPosts[index+1].likes {
+                
+                tempPost = sortedPosts[index]
+                sortedPosts[index] = sortedPosts[index+1]
+                sortedPosts[index+1] = tempPost
+                swapped = true
+                
+            }
+        }
+        }
     }
 }

@@ -19,6 +19,7 @@ class PostCell : UITableViewCell {
     @IBOutlet weak var voteDownButton: UIButton!
     var post:Post!
     
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -31,12 +32,14 @@ class PostCell : UITableViewCell {
         let childUpdates = ["Likes":post.likes+1]
         self.post.ref?.updateChildValues(childUpdates)
         //self.post.ref?.setValue(["Likes":post.likes+1])
+        voteUpButton.isEnabled = false
     }
     
     @IBAction func voteDown(_ sender: Any) {
         let childUpdates = ["Likes":post.likes-1]
         self.post.ref?.updateChildValues(childUpdates)
         //self.post.ref?.setValue(["Likes":post.likes-1])
+        voteDownButton.isEnabled = false
     }
     
     

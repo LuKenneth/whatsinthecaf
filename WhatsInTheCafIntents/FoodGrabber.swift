@@ -10,13 +10,15 @@ import Foundation
 
 class FoodGrabber {
     
-  /*  static let sharedInstance: FoodGrabber = FoodGrabber()
+    static let sharedInstance: FoodGrabber = FoodGrabber()
     private init(){}
-    
+    private var menu: [String:String] = [:]
+    private let stations:[String] = ["Comfort", "Deli", "Dessert", "Fresh Food Company", "Grill", "International", "Pizza", "Salad", "Soup, Rice and Beans"
+    , "Vegetarian"]
     func grabStation(station: String) -> String {
         
         var returnString = "Sorry, there's nothing on the menu for the station you requested."
-        let data = NSData(contentsOf: NSURL(string: "https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478") as! URL)
+        let data = NSData(contentsOf: NSURL(string: "https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478")! as URL)
         let doc = TFHpple(htmlData: data as Data!)
         var stopIndex = 0
         var startIndex = 0
@@ -69,7 +71,7 @@ class FoodGrabber {
     }
     
     func observe() {
-        let data = NSData(contentsOf: NSURL(string: "https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478") as! URL)
+        let data = NSData(contentsOf: NSURL(string: "https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478")! as URL)
         let doc = TFHpple(htmlData: data as Data!)
         
         if let elements = doc?.search(withXPathQuery: "//h2 | //a") as? [TFHppleElement] {
@@ -83,6 +85,16 @@ class FoodGrabber {
         }
         
         
-    }*/
+    }
+    
+    func grabAllStations() {
+        
+        for index in 0...stations.count {
+            
+            menu[stations[index]] = grabStation(station: stations[index])
+        }
+        
+    }
+    
 
 }

@@ -21,7 +21,14 @@ class FeedbackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         messageTextView.becomeFirstResponder()
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
         
+    }
+    
+    func dismissKeyboard() {
+        
+        self.view.endEditing(true)
     }
     
     func getEmails(_ completion: @escaping ([String],[String]) ->Void) {

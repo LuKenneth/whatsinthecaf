@@ -253,9 +253,9 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         if activeField != nil {
             if(!rect.contains(activeField.frame.origin)) {
-                let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField.frame.origin.y-(kbSize.height-30)*2)
-                scrollView.setContentOffset(scrollPoint, animated: true)
-                //self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+                //let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField.frame.origin.y-(kbSize.height-30)*2)
+                //scrollView.setContentOffset(scrollPoint, animated: true)
+                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
     }

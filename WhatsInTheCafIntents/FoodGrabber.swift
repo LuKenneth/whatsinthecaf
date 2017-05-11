@@ -17,7 +17,7 @@ class FoodGrabber {
     , "Vegetarian"]
     func grabStation(station: String) -> String {
         
-        var returnString = "Sorry, there's nothing on the menu for the station you requested."
+        var returnString = "Sorry, there's nothing on the menu for today."
         let data = NSData(contentsOf: NSURL(string: "https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478")! as URL)
         let doc = TFHpple(htmlData: data as Data!)
         var stopIndex = 0

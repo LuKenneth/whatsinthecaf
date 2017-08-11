@@ -20,6 +20,9 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     var postsToLoad:[Post] = []
     var activeField: UITextField!
     @IBOutlet weak var sortSwitch: UISegmentedControl!
+    @IBOutlet weak var cafCredLabel: UILabel!
+    var user: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         tableView.dataSource = self
         
         ref = FIRDatabase.database().reference()
+        user = (FIRAuth.auth()?.currentUser!.displayName!)!
         registerForKeyboardNotifications()
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -81,7 +85,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
 //            }
             self.tableView.reloadData()
         }
-        
+        getCafCred()
         listenForPosts()
         
     }
@@ -140,6 +144,12 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             idPath.child("Message").setValue(textField.text!)
             idPath.child("Likes").setValue(0)
             idPath.child("User").setValue((FIRAuth.auth()?.currentUser!.displayName!)!)
+            idPath.child("Date").setValue(Int(Date().timeIntervalSince1970))
+            
+            let usersIDPath = self.ref.child("Users").child((FIRAuth.auth()?.currentUser!.displayName!)!)
+            usersIDPath.child("Posts").childByAutoId().setValue(textField.text!)
+            
+            
             textField.text = ""
         }
         else {
@@ -162,9 +172,15 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         
         let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! PostCell
-        cell.messageTextView.text = postsToLoad[(postsToLoad.count - 1) - indexPath.item].message
-        cell.likesTextView.text = String(postsToLoad[(postsToLoad.count - 1) - indexPath.item].likes)
-        cell.post = postsToLoad[(postsToLoad.count-1) - indexPath.item]
+        let index = postsToLoad.count - 1 - indexPath.item >= 0 ? postsToLoad.count - indexPath.item - 1 : 0
+        cell.messageTextView.text = postsToLoad[index].message
+        cell.likesTextView.text = String(postsToLoad[index].likes)
+        let date = postsToLoad[index].date
+        let dateSinceNow = Int(Date().timeIntervalSince1970) - date
+        let dateToDisplay = getRelativeDate(dateSinceNow: dateSinceNow)
+        cell.timeLabel.text = dateToDisplay
+        cell.post = postsToLoad[index]
+        cell.table = self.tableView
         
 //        cell.likesTextView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
 //        let textView:UITextView = cell.messageTextView
@@ -186,7 +202,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             for child in snapshot.children {
                 if let data = child as? FIRDataSnapshot {
                     let newPost:Post = Post(snapshot: data)
-                
                     self.posts.append(newPost)
                 }
             }
@@ -321,5 +336,35 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             }
         }
         }
+    }
+    
+    func getRelativeDate(dateSinceNow: Int) -> String {
+        
+        if(dateSinceNow < 60) {
+            let dateInSeconds = Int(dateSinceNow)
+            return "\(dateInSeconds) seconds ago"
+        }
+        else if(dateSinceNow >= 60 && dateSinceNow < (60*60)) {
+            let dateInMinutes = Int(dateSinceNow / 60)
+            return "\(dateInMinutes) minutes ago"
+        }
+        else if(dateSinceNow >= 3600 && dateSinceNow < (3600 * 24)){
+            let dateInHours = Int(dateSinceNow / 3600)
+            return "\(dateInHours) hours ago"
+        }
+        else {
+            let dateInDays = Int(dateSinceNow / (3600 * 24))
+            return "\(dateInDays) days ago"
+        }
+        
+    }
+    
+    func getCafCred() {
+        
+        ref.child("Users").child(self.user).child("CafCred").observe(.value, with: { (snapshot) in
+            
+            self.cafCredLabel.text = snapshot.value as? String
+        })
+        
     }
 }

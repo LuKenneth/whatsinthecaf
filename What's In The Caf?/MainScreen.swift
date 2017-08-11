@@ -24,7 +24,7 @@ class MainScreen : UIViewController, UIWebViewDelegate {
         WebView.delegate = self
         WebView.scrollView.bounces = false
         WebView.scrollView.bouncesZoom = false
-    
+        
     }
 
     func webViewDidStartLoad(_ WebView: UIWebView){

@@ -43,7 +43,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="homeicon44x44" id="fbc-A9-116">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
@@ -122,6 +122,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
+                        <outlet property="feedbackLabel" destination="h2F-ec-Y0c" id="kXh-fO-X71"/>
                         <outlet property="messageTextView" destination="sNK-3r-ais" id="pMt-hU-3CV"/>
                         <outlet property="sendButton" destination="FXj-Jo-e8L" id="b2q-4d-dEh"/>
                     </connections>
@@ -209,6 +210,13 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBH-L0-Paj">
+                                                            <rect key="frame" x="8" y="51" width="160" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailingMargin" secondItem="sTJ-qZ-VDv" secondAttribute="trailing" constant="2" id="0AF-pz-qic"/>
@@ -230,6 +238,7 @@
                                                 <connections>
                                                     <outlet property="likesTextView" destination="Tnd-u7-fwy" id="Brt-RW-PJK"/>
                                                     <outlet property="messageTextView" destination="7VA-P8-zHW" id="kGE-eI-BYZ"/>
+                                                    <outlet property="timeLabel" destination="hBH-L0-Paj" id="f0V-Xb-5iP"/>
                                                     <outlet property="voteDownButton" destination="8bQ-lX-zAx" id="WEI-cR-T7I"/>
                                                     <outlet property="voteUpButton" destination="sTJ-qZ-VDv" id="8Pt-s3-Lyg"/>
                                                 </connections>
@@ -258,6 +267,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMP-ZX-zSq">
+                                        <rect key="frame" x="0.0" y="21" width="84" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dBP-qq-zhH" firstAttribute="leading" secondItem="xfL-cC-8Df" secondAttribute="leading" id="25S-Eh-hBq"/>
@@ -293,11 +309,12 @@
                     <tabBarItem key="tabBarItem" title="Discuss" image="chatBubble" id="qac-ou-EkI">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
+                        <outlet property="cafCredLabel" destination="YMP-ZX-zSq" id="wu0-eM-Eqp"/>
                         <outlet property="composeText" destination="gp5-Wc-dbn" id="bVy-tY-cPV"/>
                         <outlet property="scrollView" destination="xfL-cC-8Df" id="dJb-F7-ec0"/>
                         <outlet property="sortSwitch" destination="bct-7J-YvR" id="62f-m0-6t6"/>
@@ -442,5 +459,5 @@
         <image name="reviewicon44x44" width="44" height="44"/>
         <image name="upArrow" width="170" height="170"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

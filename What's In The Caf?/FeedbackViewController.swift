@@ -17,15 +17,21 @@ class FeedbackViewController: UIViewController {
     let alert = UIAlertView()
     var names:[String] = []
     var emails:[String] = []
+    var ref: FIRDatabaseReference!
+    @IBOutlet weak var feedbackLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         messageTextView.becomeFirstResponder()
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
+        ref = FIRDatabase.database().reference()
         
+        self.ref.child("FeedbackMessage").observe(.value, with: { (snapshot) in
+            self.feedbackLabel.text = snapshot.value as? String
+        })
     }
-    
+
     func dismissKeyboard() {
         
         self.view.endEditing(true)

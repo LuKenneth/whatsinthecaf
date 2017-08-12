@@ -219,7 +219,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             
             let usersIDPath = self.ref.child("Users").child((FIRAuth.auth()?.currentUser!.displayName!)!)
             usersIDPath.child("Posts").childByAutoId().setValue(textField.text!)
-            
+            CafCredHandler.sharedInstance.updateCafCred(score: 10, pUser: (FIRAuth.auth()?.currentUser!.displayName!)!)
             
             textField.text = ""
         }
@@ -441,7 +441,10 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         ref.child("Users").child(self.user).child("CafCred").observe(.value, with: { (snapshot) in
             
-            self.cafCredLabel.text = snapshot.value as? String
+            if let cc = snapshot.value as? Int {
+                self.cafCredLabel.text = String(cc)
+            }
+            
         })
         
     }

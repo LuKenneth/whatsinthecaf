@@ -50,6 +50,9 @@ class PostCell : UITableViewCell {
                     self.ref.child("Users").child(user).child("Likes").child(self.post.key).setValue(1)
                     self.upEnabled = false
                     self.table.reloadData()
+                    
+                    CafCredHandler.sharedInstance.updateCafCred(score: 2, pUser: self.post.user)
+                    CafCredHandler.sharedInstance.updateCafCred(score: 1, pUser: (FIRAuth.auth()?.currentUser!.displayName!)!)
                 }
             })
             
@@ -69,6 +72,13 @@ class PostCell : UITableViewCell {
                     self.ref.child("Users").child(user).child("Likes").child(self.post.key).setValue(-1)
                     self.downEnabled = false
                     self.table.reloadData()
+                    
+                    CafCredHandler.sharedInstance.updateCafCred(score: -1, pUser: self.post.user)
+                    if(self.post.likes <= -4) {
+                        self.ref.child("Posts").child(self.post.key).removeValue()
+                        CafCredHandler.sharedInstance.updateCafCred(score: -20, pUser: self.post.user)
+                        self.table.reloadData()
+                    }
                 }
             })
             

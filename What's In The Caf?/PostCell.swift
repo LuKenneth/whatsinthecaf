@@ -40,35 +40,39 @@ class PostCell : UITableViewCell {
     
     @IBAction func voteUp(_ sender: Any) {
         ref = FIRDatabase.database().reference()
-        let user = (FIRAuth.auth()?.currentUser!.displayName!)!
+        if let user = (FIRAuth.auth()?.currentUser!.displayName!) {
         
-        ref.child("Users").child(user).child("Likes").observe(.value, with: { (snapshot) in
-            if(!snapshot.hasChild(self.post.key)) {
-                let childUpdates = ["Likes":self.post.likes+1]
-                self.post.ref?.updateChildValues(childUpdates)
-                
-                self.ref.child("Users").child(user).child("Likes").child(self.post.key).setValue(1)
-                self.upEnabled = false
-                self.table.reloadData()
-            }
-        })
+            ref.child("Users").child(user).child("Likes").observe(.value, with: { (snapshot) in
+                if(!snapshot.hasChild(self.post.key)) {
+                    let childUpdates = ["Likes":self.post.likes+1]
+                    self.post.ref?.updateChildValues(childUpdates)
+                    
+                    self.ref.child("Users").child(user).child("Likes").child(self.post.key).setValue(1)
+                    self.upEnabled = false
+                    self.table.reloadData()
+                }
+            })
+            
+        }
     }
     
     @IBAction func voteDown(_ sender: Any) {
         ref = FIRDatabase.database().reference()
-        let user = (FIRAuth.auth()?.currentUser!.displayName!)!
+        if let user = (FIRAuth.auth()?.currentUser!.displayName!) {
         
-        ref.child("Users").child(user).child("Likes").observe(.value, with: { (snapshot) in
-            if(!snapshot.hasChild(self.post.key)) {
+            ref.child("Users").child(user).child("Likes").observe(.value, with: { (snapshot) in
+                if(!snapshot.hasChild(self.post.key)) {
 
-                let childUpdates = ["Likes":self.post.likes-1]
-                self.post.ref?.updateChildValues(childUpdates)
-           
-                self.ref.child("Users").child(user).child("Likes").child(self.post.key).setValue(-1)
-                self.downEnabled = false
-                self.table.reloadData()
-            }
-        })
+                    let childUpdates = ["Likes":self.post.likes-1]
+                    self.post.ref?.updateChildValues(childUpdates)
+               
+                    self.ref.child("Users").child(user).child("Likes").child(self.post.key).setValue(-1)
+                    self.downEnabled = false
+                    self.table.reloadData()
+                }
+            })
+            
+        }
     }
     
     

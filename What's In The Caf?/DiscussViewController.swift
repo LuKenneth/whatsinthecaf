@@ -31,62 +31,133 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         tableView.dataSource = self
         
         ref = FIRDatabase.database().reference()
-        user = (FIRAuth.auth()?.currentUser!.displayName!)!
         registerForKeyboardNotifications()
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        //signOut()
-        
-        let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
-            
-            if FIRAuth.auth()?.currentUser != nil {
-                if FIRAuth.auth()?.currentUser?.isEmailVerified == true {
-                    self.continueWithLoad()
-                }
-                else {
-                    self.presentAlert(title: "Verify Email", message: "Please verify your email to continue", buttonTitle: "Fine...", responder: nil)
-                }
-            } else {
-                let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let accountVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "account")
-                self.present(accountVC, animated: true, completion: nil)
-                
-            }
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        self.continueWithLoad()
         let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             
             if FIRAuth.auth()?.currentUser != nil {
                 if FIRAuth.auth()?.currentUser?.isEmailVerified == true {
                     //dont have to reload on viewDidAppear
-                    self.continueWithLoad()
+                    //self.continueWithLoad()
                 }
                 else {
-                    self.presentAlert(title: "Verify Email", message: "Please verify your email to continue", buttonTitle: "Fine...", responder: nil)
+                    self.showEmailAlert()
                 }
             } else {
-                let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let accountVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "account")
-                self.present(accountVC, animated: true, completion: nil)
+                self.showSignUpAlert()
                 
             }
         }
 
     }
     
+    func showLogIn() {
+        
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let accountVC:UIViewController = storyboard.instantiateViewController(withIdentifier: "account")
+        self.present(accountVC, animated: true, completion: nil)
+        
+    }
+    
+    func showEmailAlert() {
+        
+        let emailAlert = UIAlertController(title: "Verify Email", message: "Please verify your email to continue. It may take a few minutes. (are you really a jcu student?)", preferredStyle: .alert)
+        let fineAction = UIAlertAction(title: "Fine...", style: .default, handler: { (action) in
+            self.dismiss(animated: true, completion: nil)
+            
+            
+            if FIRAuth.auth()?.currentUser != nil {
+                if FIRAuth.auth()?.currentUser?.isEmailVerified == true {
+                    
+                }
+                else {
+                    self.dismiss(animated: true, completion: nil)
+                    if let tabBarVC = self.tabBarController {
+                        tabBarVC.selectedIndex = 0
+                    }
+                }
+            }
+            
+        })
+        let helpAlert = UIAlertController(title: "Something Wrong?", message: "If there's something wrong with your account, please send an email to lpatterson18@jcu.edu or luke.k.patterson@gmail.com", preferredStyle: .alert)
+        let helpButton = UIAlertAction(title: "Okay", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+            if let tabBarVC = self.tabBarController {
+                tabBarVC.selectedIndex = 0
+            }
+        }
+        helpAlert.addAction(helpButton)
+        
+        let helpAction = UIAlertAction(title: "Help!", style: .default) { (action) in
+            self.present(helpAlert, animated: true, completion: nil)
+        }
+        
+        let signOutAction = UIAlertAction(title: "Sign out", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+            self.signOut()
+            if let tabBarVC = self.tabBarController {
+                tabBarVC.selectedIndex = 0
+            }
+        }
+        
+        let resendAction = UIAlertAction(title: "Resend email", style: .default) { (action) in
+            if let newUser = FIRAuth.auth()?.currentUser {
+                newUser.sendEmailVerification(completion: { (error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                })
+            }
+            self.dismiss(animated: true, completion: nil)
+            if let tabBarVC = self.tabBarController {
+                tabBarVC.selectedIndex = 0
+            }
+        }
+        
+        emailAlert.addAction(fineAction)
+        emailAlert.addAction(resendAction)
+        emailAlert.addAction(signOutAction)
+        emailAlert.addAction(helpAction)
+        self.present(emailAlert, animated: true, completion: nil)
+        
+    }
+    
+    func showSignUpAlert() {
+        
+        let alert = UIAlertController(title: "Sign In / Sign Up!", message: "Join the discussion by signing up or signing in!", preferredStyle: .alert)
+        let joinAction = UIAlertAction(title: "Join", style: .default, handler: { (action) in
+            self.showLogIn()
+        })
+        let maybeLaterAction = UIAlertAction(title: "Later", style: .default, handler: { (action) in
+            self.dismiss(animated: true, completion: nil)
+            if let tabBarVC = self.tabBarController {
+                tabBarVC.selectedIndex = 0
+            }
+        })
+        
+        alert.addAction(joinAction)
+        alert.addAction(maybeLaterAction)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     func continueWithLoad() {
+        if let currentUser = FIRAuth.auth()?.currentUser {
+            self.user = currentUser.displayName!
+            self.getCafCred()
+            self.listenForPosts()
+        }
+        
         grabPosts{ (posts) in
             self.posts = posts
-//            for post in posts {
-//                print(post.message)
-//            }
             self.tableView.reloadData()
         }
-        getCafCred()
-        listenForPosts()
         
     }
     
@@ -321,20 +392,23 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         var tempPost:Post!
         var swapped = true
         
-        while(swapped) {
+        if(sortedPosts.count >= 2) {
         
-        swapped = false
-        for index in 0...sortedPosts.count-2 {
+            while(swapped) {
             
-            if sortedPosts[index].likes > sortedPosts[index+1].likes {
-                
-                tempPost = sortedPosts[index]
-                sortedPosts[index] = sortedPosts[index+1]
-                sortedPosts[index+1] = tempPost
-                swapped = true
-                
+                swapped = false
+                for index in 0...sortedPosts.count-2 {
+                    
+                    if sortedPosts[index].likes > sortedPosts[index+1].likes {
+                        
+                        tempPost = sortedPosts[index]
+                        sortedPosts[index] = sortedPosts[index+1]
+                        sortedPosts[index+1] = tempPost
+                        swapped = true
+                        
+                    }
+                }
             }
-        }
         }
     }
     
@@ -342,19 +416,23 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         if(dateSinceNow < 60) {
             let dateInSeconds = Int(dateSinceNow)
-            return "\(dateInSeconds) seconds ago"
+            let grammar = dateInSeconds > 1 ? "seconds" : "second"
+            return "\(dateInSeconds) \(grammar) ago"
         }
         else if(dateSinceNow >= 60 && dateSinceNow < (60*60)) {
             let dateInMinutes = Int(dateSinceNow / 60)
-            return "\(dateInMinutes) minutes ago"
+            let grammar = dateInMinutes > 1 ? "minutes" : "minute"
+            return "\(dateInMinutes) \(grammar) ago"
         }
         else if(dateSinceNow >= 3600 && dateSinceNow < (3600 * 24)){
             let dateInHours = Int(dateSinceNow / 3600)
-            return "\(dateInHours) hours ago"
+            let grammar = dateInHours > 1 ? "hours" : "hour"
+            return "\(dateInHours) \(grammar) ago"
         }
         else {
             let dateInDays = Int(dateSinceNow / (3600 * 24))
-            return "\(dateInDays) days ago"
+            let grammar = dateInDays > 1 ? "days" : "day"
+            return "\(dateInDays) \(grammar) ago"
         }
         
     }
@@ -367,4 +445,19 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         })
         
     }
+    
+    @IBAction func accountButton(_ sender: Any) {
+        
+        if let _ = FIRAuth.auth()?.currentUser {
+            let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let accountVC:MyAccount = storyboard.instantiateViewController(withIdentifier: "me") as! MyAccount
+            if let tabBarVC = self.tabBarController {
+                accountVC.tabVC = tabBarVC
+                self.present(accountVC, animated: true, completion: nil)
+            }
+            
+        }
+        
+    }
+    
 }

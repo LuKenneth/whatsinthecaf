@@ -15,7 +15,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var emailSignInField: UITextField!
     @IBOutlet weak var passwordSignInField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-    
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var emailSignUpField: UITextField!
     @IBOutlet weak var passwordSignUpField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
@@ -25,8 +25,9 @@ class AccountController: UIViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        //emailSignInField.addTarget(self, action: #selector(AccountController.emailTextChanged), forControlEvents: UIControlEvents.EditingChanged)
         emailSignUpField.addTarget(self, action: #selector(AccountController.validateEmail), for: UIControlEvents.editingDidEnd)
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -155,5 +156,37 @@ class AccountController: UIViewController, UIAlertViewDelegate {
 
         
     }
+    
+    func dismissKeyboard() {
+        
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func forgotPassword(_ sender: Any) {
+        
+        if let email = emailSignInField.text {
+            if email.contains("@jcu.edu") {
+                FIRAuth.auth()?.sendPasswordReset(withEmail: email) { (error) in
+                    if let error = error {
+                        self.presentAlert(title: "Error", message: "Error: \(String(describing: error.localizedDescription))", buttonTitle: "Bummer", responder: nil, action: nil)
+                    }
+                    else {
+                        self.presentAlert(title: "Success", message: "Check your email for instructions to reset your password", buttonTitle: "Okay", responder: nil, action: nil)
+                    }
+                }
+            }
+            else {
+                self.presentAlert(title: "Email", message: "Please type your email address in the field above. An email will be sent to reset your password", buttonTitle: "Okay", responder: nil, action: nil)
+            }
+        }
+        
+    }
+    
     
 }

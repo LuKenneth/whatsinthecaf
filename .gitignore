@@ -5,6 +5,7 @@
 .Spotlight-V100
 *.swp
 Pods.zip
+FeedbackViewController.swift
 Pods/
 ## Xcode build files
 DerivedData/

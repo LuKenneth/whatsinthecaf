@@ -51,8 +51,8 @@ class PostCell : UITableViewCell {
                     self.upEnabled = false
                     self.table.reloadData()
                     
-                    CafCredHandler.sharedInstance.updateCafCred(score: 2, pUser: self.post.user)
                     CafCredHandler.sharedInstance.updateCafCred(score: 1, pUser: (FIRAuth.auth()?.currentUser!.displayName!)!)
+                    CafCredHandler.sharedInstance.updateCafCred(score: 2, pUser: self.post.user)
                 }
             })
             

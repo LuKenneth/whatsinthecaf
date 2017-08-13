@@ -34,6 +34,10 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         registerForKeyboardNotifications()
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        let ccTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.showCafCredScreen))
+        view.addGestureRecognizer(ccTap)
+        
+//        signOut()
         
     }
 
@@ -447,6 +451,14 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             
         })
         
+    }
+    
+    func showCafCredScreen() {
+        
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ccVC:CafCredController = storyboard.instantiateViewController(withIdentifier: "cafCred") as! CafCredController
+        ccVC.cc = self.cafCredLabel.text! + " CC"
+        self.present(ccVC, animated: true, completion: nil)
     }
     
     @IBAction func accountButton(_ sender: Any) {

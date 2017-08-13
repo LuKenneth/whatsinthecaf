@@ -41,6 +41,7 @@
 		A383F7001EC3BEB000F822A1 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A383F6E21EC3B49300F822A1 /* XPathQuery.m */; };
 		A3BDB8271F3F8980004A155A /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDB8261F3F8980004A155A /* MyAccountController.swift */; };
 		A3BDB8291F3FA76A004A155A /* CafCredHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDB8281F3FA76A004A155A /* CafCredHandler.swift */; };
+		A3BDB82B1F410286004A155A /* CafCredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDB82A1F410286004A155A /* CafCredController.swift */; };
 		C4E4DB7B16E33D13D8C225A5 /* Pods_WhatsInTheCafTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE2F31B22F00282FC69D65 /* Pods_WhatsInTheCafTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		A383F6F51EC3B4EC00F822A1 /* FoodGrabber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodGrabber.swift; sourceTree = "<group>"; };
 		A3BDB8261F3F8980004A155A /* MyAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A3BDB8281F3FA76A004A155A /* CafCredHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafCredHandler.swift; sourceTree = "<group>"; };
+		A3BDB82A1F410286004A155A /* CafCredController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafCredController.swift; sourceTree = "<group>"; };
 		ADAA132B976B88281280FC23 /* Pods_WhatsInTheCaf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCaf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCEE2F31B22F00282FC69D65 /* Pods_WhatsInTheCafTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCafTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD7DE5F92D8CD1036E182A5 /* Pods_WhatsInTheCafUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsInTheCafUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +256,7 @@
 				A3583FDC1E37EB9400D62BA8 /* AccountController.swift */,
 				A339D7501E294BEE00E887AA /* DiscussViewController.swift */,
 				A3BDB8261F3F8980004A155A /* MyAccountController.swift */,
+				A3BDB82A1F410286004A155A /* CafCredController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				A383F6E41EC3B49300F822A1 /* TFHppleElement.m in Sources */,
 				A3130D4C1EB6D76E004AE9E4 /* PostCell.swift in Sources */,
 				A383F6E31EC3B49300F822A1 /* TFHpple.m in Sources */,
+				A3BDB82B1F410286004A155A /* CafCredController.swift in Sources */,
 				A3BDB8271F3F8980004A155A /* MyAccountController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

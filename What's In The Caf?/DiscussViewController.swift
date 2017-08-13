@@ -22,6 +22,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     @IBOutlet weak var sortSwitch: UISegmentedControl!
     @IBOutlet weak var cafCredLabel: UILabel!
     var user: String!
+    var refreshControl: UIRefreshControl!
     
     
     override func viewDidLoad() {
@@ -36,6 +37,15 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         view.addGestureRecognizer(tap)
         let ccTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.showCafCredScreen))
         view.addGestureRecognizer(ccTap)
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.reloadTable), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
         
 //        signOut()
         
@@ -59,6 +69,10 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             }
         }
 
+    }
+    
+    func reloadTable() {
+        self.tableView.reloadData()
     }
     
     func showLogIn() {
@@ -262,6 +276,9 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
 //        var topCorrect:CGFloat = (textView.bounds.size.height - textView.contentSize.height * textView.zoomScale)/2.0
 //        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect
 //        textView.contentOffset = CGPoint(x: 0.0, y: -topCorrect)
+        if(indexPath.item >= postsToLoad.count - 1 && self.refreshControl.isRefreshing) {
+            self.refreshControl.endRefreshing()
+        }
         return cell
         
     }

@@ -12,6 +12,7 @@ import Firebase
 
 class AccountController: UIViewController, UIAlertViewDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailSignInField: UITextField!
     @IBOutlet weak var passwordSignInField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -23,7 +24,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
     var emailString:String = ""
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
         
         emailSignUpField.addTarget(self, action: #selector(AccountController.validateEmail), for: UIControlEvents.editingDidEnd)
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -35,6 +36,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
         if let email = emailSignInField.text  {
             
             if let password = passwordSignInField.text {
+                self.activityIndicator.startAnimating()
                 
                 FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
                     
@@ -44,6 +46,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
                         //sign in success
                         self.dismiss(animated: true, completion: nil)
                     }
+                    self.activityIndicator.stopAnimating()
                 }
             }
             
@@ -55,6 +58,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
         
         if(validateEmail() && validatePassword()) {
             
+            self.activityIndicator.startAnimating()
             FIRAuth.auth()?.createUser(withEmail: emailSignUpField.text!, password: passwordSignUpField.text!) { (user, error) in
             
                 if let error = error {
@@ -95,6 +99,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
                     self.presentAlert(title: "Success", message: "Account successfully created. Please verify your email.", buttonTitle: "Okay", responder: nil, action: buttonAction)
                     
                 }
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -172,6 +177,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
         
         if let email = emailSignInField.text {
             if email.contains("@jcu.edu") {
+                self.activityIndicator.startAnimating()
                 FIRAuth.auth()?.sendPasswordReset(withEmail: email) { (error) in
                     if let error = error {
                         self.presentAlert(title: "Error", message: "Error: \(String(describing: error.localizedDescription))", buttonTitle: "Bummer", responder: nil, action: nil)
@@ -179,6 +185,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
                     else {
                         self.presentAlert(title: "Success", message: "Check your email for instructions to reset your password", buttonTitle: "Okay", responder: nil, action: nil)
                     }
+                    self.activityIndicator.stopAnimating()
                 }
             }
             else {

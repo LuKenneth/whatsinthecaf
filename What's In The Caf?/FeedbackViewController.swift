@@ -19,6 +19,8 @@ class FeedbackViewController: UIViewController {
     var emails:[String] = []
     var ref: FIRDatabaseReference!
     @IBOutlet weak var feedbackLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class FeedbackViewController: UIViewController {
         self.ref.child("FeedbackMessage").observe(.value, with: { (snapshot) in
             self.feedbackLabel.text = snapshot.value as? String
         })
+        
     }
 
     func dismissKeyboard() {
@@ -52,6 +55,8 @@ class FeedbackViewController: UIViewController {
     }
     
     @IBAction func send(_ sender: AnyObject) {
+        
+        activityIndicator.startAnimating()
         
         getEmails { (names, emails) in
             self.names = names
@@ -98,6 +103,7 @@ class FeedbackViewController: UIViewController {
                 self.alert.message = "Thank you! Your feedback has been recorded!"
                 self.messageTextView.text = ""
             }
+            self.activityIndicator.stopAnimating()
             self.alert.addButton(withTitle: "Okay")
             self.alert.show()
         }

@@ -82,7 +82,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any and all feedback is welcome! Your feedback will be emailed to our dining staff. Thank you!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2F-ec-Y0c">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any and all feedback is welcome! Your anonymous feedback will be emailed to our dining staff. Thank you!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2F-ec-Y0c">
                                 <rect key="frame" x="16" y="53" width="295" height="50.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,6 +98,11 @@
                                     <action selector="send:" destination="khK-wh-bft" eventType="touchUpInside" id="XUG-38-JrG"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XEL-D9-ilf">
+                                <rect key="frame" x="146" y="149" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -122,6 +127,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="XEL-D9-ilf" id="lsw-09-Lh5"/>
                         <outlet property="feedbackLabel" destination="h2F-ec-Y0c" id="kXh-fO-X71"/>
                         <outlet property="messageTextView" destination="sNK-3r-ais" id="pMt-hU-3CV"/>
                         <outlet property="sendButton" destination="FXj-Jo-e8L" id="b2q-4d-dEh"/>
@@ -522,6 +528,11 @@
                                     <action selector="forgotPassword:" destination="imR-B0-1ag" eventType="touchUpInside" id="dWk-Sf-u4F"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-e6-C7Y">
+                                <rect key="frame" x="142" y="242" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.078431372550000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -548,6 +559,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="UVe-e6-C7Y" id="NBU-Hf-Hdk"/>
                         <outlet property="cancelButton" destination="gtj-sk-Psw" id="jIQ-3a-oqK"/>
                         <outlet property="confirmPasswordField" destination="2Ai-V2-AeM" id="HTa-f0-Yv2"/>
                         <outlet property="emailSignInField" destination="5X0-LX-fnt" id="OPf-2G-hyu"/>

@@ -23,6 +23,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     @IBOutlet weak var cafCredLabel: UILabel!
     var user: String!
     var refreshControl: UIRefreshControl!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -36,7 +37,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
         let ccTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.showCafCredScreen))
-        view.addGestureRecognizer(ccTap)
+        cafCredLabel.addGestureRecognizer(ccTap)
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.reloadTable), for: .valueChanged)
@@ -46,8 +47,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         } else {
             tableView.addSubview(refreshControl)
         }
-        
-//        signOut()
         
     }
 
@@ -336,12 +335,13 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         let kbRect: CGRect = info.object(forKey: UIKeyboardFrameBeginUserInfoKey) as! CGRect
         let kbSize: CGSize = kbRect.size
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -kbSize.height, 0.0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -kbSize.height, 0.0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
         self.view.endEditing(true)
-        self.scrollView.isScrollEnabled = false
+//        self.scrollView.isScrollEnabled = false
         
+        composeText.frame = composeText.frame.offsetBy(dx: 0, dy: kbSize.height - composeText.frame.height)
     }
     
     func showKeyboard(notification: NSNotification) {
@@ -351,19 +351,21 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         let kbRect: CGRect = info.object(forKey: UIKeyboardFrameBeginUserInfoKey) as! CGRect
         let kbSize: CGSize = kbRect.size
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//        
+//        var rect:CGRect = self.view.frame
+//        rect.size.height -= kbSize.height
         
-        var rect:CGRect = self.view.frame
-        rect.size.height -= kbSize.height
+        composeText.frame = composeText.frame.offsetBy(dx: 0, dy: -(kbSize.height - composeText.frame.height))
         
         if activeField != nil {
-            if(!rect.contains(activeField.frame.origin)) {
+//            if(!rect.contains(activeField.frame.origin)) {
                 //let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField.frame.origin.y-(kbSize.height-30)*2)
                 //scrollView.setContentOffset(scrollPoint, animated: true)
-                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-            }
+                //self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+//            }
         }
     }
     

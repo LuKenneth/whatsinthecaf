@@ -21,6 +21,7 @@ class AccountController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var passwordSignUpField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    
     var emailString:String = ""
     
     override func viewDidLoad() {

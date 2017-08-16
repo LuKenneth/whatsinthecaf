@@ -21,7 +21,9 @@ class FoodGrabber {
     func grabStation(station: String) -> String {
         
         var returnString = ""
-        let data = NSData(contentsOf: NSURL(string: "https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478&PeriodId=1327&MenuDate=2017-05-12&Mode=day&UIBuildDateFrom=2017-05-12")! as URL)
+        let data = NSData(contentsOf: NSURL(string: "http://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478&MenuDate=2017-08-29&Mode=day&UIBuildDateFrom=2017-08-29")! as URL)
+        //https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478&PeriodId=1327&MenuDate=2017-05-12&Mode=day&UIBuildDateFrom=2017-05-12
+        //http://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478&MenuDate=2017-08-29&Mode=day&UIBuildDateFrom=2017-08-29
         //https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478
         //https://jcu.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3478&PeriodId=1327&MenuDate=2017-05-12&Mode=day&UIBuildDateFrom=2017-05-12
         let doc = TFHpple(htmlData: data as Data!)

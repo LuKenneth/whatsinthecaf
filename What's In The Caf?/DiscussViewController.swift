@@ -24,6 +24,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     var user: String!
     var refreshControl: UIRefreshControl!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var keyboardOriginRect: CGRect!
     
     
     override func viewDidLoad() {
@@ -270,11 +271,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         cell.post = postsToLoad[index]
         cell.table = self.tableView
         
-//        cell.likesTextView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-//        let textView:UITextView = cell.messageTextView
-//        var topCorrect:CGFloat = (textView.bounds.size.height - textView.contentSize.height * textView.zoomScale)/2.0
-//        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect
-//        textView.contentOffset = CGPoint(x: 0.0, y: -topCorrect)
         if(indexPath.item >= postsToLoad.count - 1 && self.refreshControl.isRefreshing) {
             self.refreshControl.endRefreshing()
         }
@@ -310,9 +306,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         ref.child("Posts").observe(.childChanged, with: { (snapshot) in
             self.grabPosts{ (posts) in
                 self.posts = posts
-//                for post in posts {
-//                    print(post.message)
-//                }
                 self.tableView.reloadData()
             }
         }) { (error) in
@@ -325,23 +318,20 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     func registerForKeyboardNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.hideKeyboard), name: .UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.showKeyboard(notification:)), name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showKeyboard), name: .UIKeyboardWillShow, object: nil)
     }
     
     func hideKeyboard(notification: NSNotification) {
+        
         guard let info: NSDictionary = notification.userInfo as NSDictionary? else {
             return
         }
         
-        let kbRect: CGRect = info.object(forKey: UIKeyboardFrameBeginUserInfoKey) as! CGRect
-        let kbSize: CGSize = kbRect.size
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -kbSize.height, 0.0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-        self.view.endEditing(true)
-//        self.scrollView.isScrollEnabled = false
+        let kbRectEnd: CGRect = info.object(forKey: UIKeyboardFrameEndUserInfoKey) as! CGRect
+        if let tabBar = tabBarController?.tabBar {
+            composeText.frame = CGRect(x: composeText.frame.origin.x, y: kbRectEnd.origin.y - composeText.frame.height - tabBar.frame.height, width: composeText.frame.width, height: composeText.frame.height)
+        }
         
-        composeText.frame = composeText.frame.offsetBy(dx: 0, dy: kbSize.height - composeText.frame.height)
     }
     
     func showKeyboard(notification: NSNotification) {
@@ -349,34 +339,14 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             return
         }
         
-        let kbRect: CGRect = info.object(forKey: UIKeyboardFrameBeginUserInfoKey) as! CGRect
-        let kbSize: CGSize = kbRect.size
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-//        
-//        var rect:CGRect = self.view.frame
-//        rect.size.height -= kbSize.height
-        
-        composeText.frame = composeText.frame.offsetBy(dx: 0, dy: -(kbSize.height - composeText.frame.height))
-        
-        if activeField != nil {
-//            if(!rect.contains(activeField.frame.origin)) {
-                //let scrollPoint:CGPoint = CGPoint(x: 0.0, y: activeField.frame.origin.y-(kbSize.height-30)*2)
-                //scrollView.setContentOffset(scrollPoint, animated: true)
-                //self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-//            }
-        }
+        let kbRectEnd: CGRect = info.object(forKey: UIKeyboardFrameEndUserInfoKey) as! CGRect
+        composeText.frame = CGRect(x: composeText.frame.origin.x, y: kbRectEnd.origin.y - composeText.frame.height, width: composeText.frame.width, height: composeText.frame.height)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeField = textField
         
         return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        //activeField = nil
     }
     
     func dismissKeyboard() {

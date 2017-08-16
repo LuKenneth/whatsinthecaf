@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		112DC9E00DC75CA0AF216DF6 /* Pods_WhatsInTheCaf_WhatsInTheCafIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A31C8E9ECB24D0C7C9279E2 /* Pods_WhatsInTheCaf_WhatsInTheCafIntents.framework */; };
 		1A1BBD41408C709CB013D233 /* Pods_WhatsInTheCafUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD7DE5F92D8CD1036E182A5 /* Pods_WhatsInTheCafUITests.framework */; };
 		5BD9FDDC34150B1627B3A23E /* Pods_WhatsInTheCaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA132B976B88281280FC23 /* Pods_WhatsInTheCaf.framework */; };
 		A300832A1DAC4D2E00108F6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30083291DAC4D2E00108F6C /* GoogleService-Info.plist */; };
@@ -27,18 +26,6 @@
 		A338E0871EB2BA3800EA0A34 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A338E0861EB2BA3800EA0A34 /* Post.swift */; };
 		A339D7511E294BEE00E887AA /* DiscussViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A339D7501E294BEE00E887AA /* DiscussViewController.swift */; };
 		A3583FDD1E37EB9400D62BA8 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3583FDC1E37EB9400D62BA8 /* AccountController.swift */; };
-		A383F6E31EC3B49300F822A1 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A383F6DE1EC3B49300F822A1 /* TFHpple.m */; };
-		A383F6E41EC3B49300F822A1 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A383F6E01EC3B49300F822A1 /* TFHppleElement.m */; };
-		A383F6E51EC3B49300F822A1 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A383F6E21EC3B49300F822A1 /* XPathQuery.m */; };
-		A383F6ED1EC3B4BE00F822A1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A383F6EC1EC3B4BE00F822A1 /* IntentHandler.swift */; };
-		A383F6F11EC3B4BE00F822A1 /* WhatsInTheCafIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A383F6EA1EC3B4BE00F822A1 /* WhatsInTheCafIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A383F6F61EC3B4EC00F822A1 /* FoodGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A383F6F51EC3B4EC00F822A1 /* FoodGrabber.swift */; };
-		A383F6F71EC3B4EC00F822A1 /* FoodGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A383F6F51EC3B4EC00F822A1 /* FoodGrabber.swift */; };
-		A383F6FC1EC3B65000F822A1 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A369057F1EA9981E0051BEDA /* libxml2.2.tbd */; };
-		A383F6FD1EC3B65000F822A1 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A36905801EA9981E0051BEDA /* libxml2.tbd */; };
-		A383F6FE1EC3BEAC00F822A1 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A383F6DE1EC3B49300F822A1 /* TFHpple.m */; };
-		A383F6FF1EC3BEAE00F822A1 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A383F6E01EC3B49300F822A1 /* TFHppleElement.m */; };
-		A383F7001EC3BEB000F822A1 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A383F6E21EC3B49300F822A1 /* XPathQuery.m */; };
 		A3BDB8271F3F8980004A155A /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDB8261F3F8980004A155A /* MyAccountController.swift */; };
 		A3BDB8291F3FA76A004A155A /* CafCredHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDB8281F3FA76A004A155A /* CafCredHandler.swift */; };
 		A3BDB82B1F410286004A155A /* CafCredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BDB82A1F410286004A155A /* CafCredController.swift */; };
@@ -60,13 +47,6 @@
 			remoteGlobalIDString = A30967071BC59D8000B7F240;
 			remoteInfo = "What's In The Caf?";
 		};
-		A383F6EF1EC3B4BE00F822A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A30967001BC59D8000B7F240 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A383F6E91EC3B4BE00F822A1;
-			remoteInfo = WhatsInTheCafIntents;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,7 +56,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A383F6F11EC3B4BE00F822A1 /* WhatsInTheCafIntents.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,16 +97,6 @@
 		A3583FDC1E37EB9400D62BA8 /* AccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		A369057F1EA9981E0051BEDA /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		A36905801EA9981E0051BEDA /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		A383F6DD1EC3B49300F822A1 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
-		A383F6DE1EC3B49300F822A1 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
-		A383F6DF1EC3B49300F822A1 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
-		A383F6E01EC3B49300F822A1 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
-		A383F6E11EC3B49300F822A1 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
-		A383F6E21EC3B49300F822A1 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
-		A383F6EA1EC3B4BE00F822A1 /* WhatsInTheCafIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WhatsInTheCafIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A383F6EC1EC3B4BE00F822A1 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		A383F6EE1EC3B4BE00F822A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A383F6F51EC3B4EC00F822A1 /* FoodGrabber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodGrabber.swift; sourceTree = "<group>"; };
 		A3BDB8261F3F8980004A155A /* MyAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A3BDB8281F3FA76A004A155A /* CafCredHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafCredHandler.swift; sourceTree = "<group>"; };
 		A3BDB82A1F410286004A155A /* CafCredController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafCredController.swift; sourceTree = "<group>"; };
@@ -168,16 +137,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A383F6E71EC3B4BE00F822A1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A383F6FC1EC3B65000F822A1 /* libxml2.2.tbd in Frameworks */,
-				A383F6FD1EC3B65000F822A1 /* libxml2.tbd in Frameworks */,
-				112DC9E00DC75CA0AF216DF6 /* Pods_WhatsInTheCaf_WhatsInTheCafIntents.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -186,17 +145,10 @@
 			children = (
 				A32F18BA1EA9931600B935DA /* WhatsInTheCaf.entitlements */,
 				A30083291DAC4D2E00108F6C /* GoogleService-Info.plist */,
-				A383F6DD1EC3B49300F822A1 /* TFHpple.h */,
-				A383F6DE1EC3B49300F822A1 /* TFHpple.m */,
-				A383F6DF1EC3B49300F822A1 /* TFHppleElement.h */,
-				A383F6E01EC3B49300F822A1 /* TFHppleElement.m */,
-				A383F6E11EC3B49300F822A1 /* XPathQuery.h */,
-				A383F6E21EC3B49300F822A1 /* XPathQuery.m */,
 				A30967801BC5A00500B7F240 /* BridgingHeader.h */,
 				A309670A1BC59D8000B7F240 /* What's In The Caf? */,
 				A309671F1BC59D8000B7F240 /* What's In The Caf?Tests */,
 				A309672A1BC59D8000B7F240 /* What's In The Caf?UITests */,
-				A383F6EB1EC3B4BE00F822A1 /* WhatsInTheCafIntents */,
 				A30967091BC59D8000B7F240 /* Products */,
 				F3B4B6A01411DE09DA75BA30 /* Pods */,
 				DC397C685DF1F6B6B5470ED5 /* Frameworks */,
@@ -209,7 +161,6 @@
 				A30967081BC59D8000B7F240 /* WhatsInTheCaf.app */,
 				A309671C1BC59D8000B7F240 /* WhatsInTheCaf.xctest */,
 				A30967271BC59D8000B7F240 /* WhatsInTheCaf.xctest */,
-				A383F6EA1EC3B4BE00F822A1 /* WhatsInTheCafIntents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,16 +210,6 @@
 				A3BDB82A1F410286004A155A /* CafCredController.swift */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		A383F6EB1EC3B4BE00F822A1 /* WhatsInTheCafIntents */ = {
-			isa = PBXGroup;
-			children = (
-				A383F6F51EC3B4EC00F822A1 /* FoodGrabber.swift */,
-				A383F6EC1EC3B4BE00F822A1 /* IntentHandler.swift */,
-				A383F6EE1EC3B4BE00F822A1 /* Info.plist */,
-			);
-			path = WhatsInTheCafIntents;
 			sourceTree = "<group>";
 		};
 		DC397C685DF1F6B6B5470ED5 /* Frameworks */ = {
@@ -322,7 +263,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				A383F6F01EC3B4BE00F822A1 /* PBXTargetDependency */,
 			);
 			name = WhatsInTheCaf;
 			productName = "What's In The Caf?";
@@ -371,25 +311,6 @@
 			productReference = A30967271BC59D8000B7F240 /* WhatsInTheCaf.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		A383F6E91EC3B4BE00F822A1 /* WhatsInTheCafIntents */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A383F6F21EC3B4BE00F822A1 /* Build configuration list for PBXNativeTarget "WhatsInTheCafIntents" */;
-			buildPhases = (
-				F297FC3004E599A012CBA092 /* [CP] Check Pods Manifest.lock */,
-				A383F6E61EC3B4BE00F822A1 /* Sources */,
-				A383F6E71EC3B4BE00F822A1 /* Frameworks */,
-				A383F6E81EC3B4BE00F822A1 /* Resources */,
-				248A9509014FE00CB7D1095F /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WhatsInTheCafIntents;
-			productName = WhatsInTheCafIntents;
-			productReference = A383F6EA1EC3B4BE00F822A1 /* WhatsInTheCafIntents.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -407,7 +328,7 @@
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.Siri = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -420,11 +341,6 @@
 						CreatedOnToolsVersion = 7.0;
 						LastSwiftMigration = 0820;
 						TestTargetID = A30967071BC59D8000B7F240;
-					};
-					A383F6E91EC3B4BE00F822A1 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = VF2596BARK;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -444,7 +360,6 @@
 				A30967071BC59D8000B7F240 /* WhatsInTheCaf */,
 				A309671B1BC59D8000B7F240 /* WhatsInTheCafTests */,
 				A30967261BC59D8000B7F240 /* WhatsInTheCafUITests */,
-				A383F6E91EC3B4BE00F822A1 /* WhatsInTheCafIntents */,
 			);
 		};
 /* End PBXProject section */
@@ -475,31 +390,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A383F6E81EC3B4BE00F822A1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		248A9509014FE00CB7D1095F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsInTheCaf-WhatsInTheCafIntents/Pods-WhatsInTheCaf-WhatsInTheCafIntents-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		683633B40F5FD0F98B2C62FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -620,21 +513,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsInTheCaf/Pods-WhatsInTheCaf-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F297FC3004E599A012CBA092 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		F5C373EACC05B1B2CEAE4055 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,16 +537,12 @@
 			files = (
 				A30967471BC59E6400B7F240 /* AppDelegate.swift in Sources */,
 				A338E0871EB2BA3800EA0A34 /* Post.swift in Sources */,
-				A383F6E51EC3B49300F822A1 /* XPathQuery.m in Sources */,
 				A3583FDD1E37EB9400D62BA8 /* AccountController.swift in Sources */,
 				A3018D5F1D9C8CC100F35597 /* FeedbackViewController.swift in Sources */,
 				A309673A1BC59E0D00B7F240 /* MainScreen.swift in Sources */,
 				A339D7511E294BEE00E887AA /* DiscussViewController.swift in Sources */,
 				A3BDB8291F3FA76A004A155A /* CafCredHandler.swift in Sources */,
-				A383F6F61EC3B4EC00F822A1 /* FoodGrabber.swift in Sources */,
-				A383F6E41EC3B49300F822A1 /* TFHppleElement.m in Sources */,
 				A3130D4C1EB6D76E004AE9E4 /* PostCell.swift in Sources */,
-				A383F6E31EC3B49300F822A1 /* TFHpple.m in Sources */,
 				A3BDB82B1F410286004A155A /* CafCredController.swift in Sources */,
 				A3BDB8271F3F8980004A155A /* MyAccountController.swift in Sources */,
 			);
@@ -690,18 +564,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A383F6E61EC3B4BE00F822A1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A383F6FF1EC3BEAE00F822A1 /* TFHppleElement.m in Sources */,
-				A383F6ED1EC3B4BE00F822A1 /* IntentHandler.swift in Sources */,
-				A383F7001EC3BEB000F822A1 /* XPathQuery.m in Sources */,
-				A383F6FE1EC3BEAC00F822A1 /* TFHpple.m in Sources */,
-				A383F6F71EC3B4EC00F822A1 /* FoodGrabber.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -714,11 +576,6 @@
 			isa = PBXTargetDependency;
 			target = A30967071BC59D8000B7F240 /* WhatsInTheCaf */;
 			targetProxy = A30967281BC59D8000B7F240 /* PBXContainerItemProxy */;
-		};
-		A383F6F01EC3B4BE00F822A1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A383F6E91EC3B4BE00F822A1 /* WhatsInTheCafIntents */;
-			targetProxy = A383F6EF1EC3B4BE00F822A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -830,7 +687,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = WhatsInTheCaf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -927,7 +783,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = WhatsInTheCaf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1078,171 +933,6 @@
 			};
 			name = Release;
 		};
-		A383F6F31EC3B4BE00F822A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 472ECBED1D6BFAB10ED0DE98 /* Pods-WhatsInTheCaf-WhatsInTheCafIntents.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = VF2596BARK;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"${PODS_ROOT}/Firebase/Headers",
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios\"",
-					"$(SDKROOT)/usr/include/libxml2",
-				);
-				INFOPLIST_FILE = WhatsInTheCafIntents/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"MailCore-ios\"",
-					"-l\"c++\"",
-					"-l\"iconv\"",
-					"-l\"icucore\"",
-					"-l\"resolv\"",
-					"-l\"sqlite3\"",
-					"-l\"xml2\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AdSupport\"",
-					"-framework",
-					"\"AddressBook\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseAuth\"",
-					"-framework",
-					"\"FirebaseDatabase\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
-					"-framework",
-					"\"GoogleInterchangeUtilities\"",
-					"-framework",
-					"\"GoogleNetworkingUtilities\"",
-					"-framework",
-					"\"GoogleParsingUtilities\"",
-					"-framework",
-					"\"GoogleSymbolUtilities\"",
-					"-framework",
-					"\"GoogleUtilities\"",
-					"-framework",
-					"\"SafariServices\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-lxml2",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf.WhatsInTheCafIntents;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		A383F6F41EC3B4BE00F822A1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6528864749950013B804DE1E /* Pods-WhatsInTheCaf-WhatsInTheCafIntents.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = VF2596BARK;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"${PODS_ROOT}/Firebase/Headers",
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
-					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
-					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios\"",
-					"$(SDKROOT)/usr/include/libxml2",
-				);
-				INFOPLIST_FILE = WhatsInTheCafIntents/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"MailCore-ios\"",
-					"-l\"c++\"",
-					"-l\"iconv\"",
-					"-l\"icucore\"",
-					"-l\"resolv\"",
-					"-l\"sqlite3\"",
-					"-l\"xml2\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AdSupport\"",
-					"-framework",
-					"\"AddressBook\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseAuth\"",
-					"-framework",
-					"\"FirebaseDatabase\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
-					"-framework",
-					"\"GoogleInterchangeUtilities\"",
-					"-framework",
-					"\"GoogleNetworkingUtilities\"",
-					"-framework",
-					"\"GoogleParsingUtilities\"",
-					"-framework",
-					"\"GoogleSymbolUtilities\"",
-					"-framework",
-					"\"GoogleUtilities\"",
-					"-framework",
-					"\"SafariServices\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-lxml2",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukepatterson.WhatsInTheCaf.WhatsInTheCafIntents;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1278,15 +968,6 @@
 			buildConfigurations = (
 				A30967371BC59D8000B7F240 /* Debug */,
 				A30967381BC59D8000B7F240 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A383F6F21EC3B4BE00F822A1 /* Build configuration list for PBXNativeTarget "WhatsInTheCafIntents" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A383F6F31EC3B4BE00F822A1 /* Debug */,
-				A383F6F41EC3B4BE00F822A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

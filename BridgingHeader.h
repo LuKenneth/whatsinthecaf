@@ -13,10 +13,5 @@
 #import <MailCore/MailCore.h>
 
 
-#import "TFHpple.h"
-#import "TFHppleElement.h"
-
-
-
 #endif /* BridgingHeader_h */
 

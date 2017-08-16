@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>What's In The Caf?.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>WhatsInTheCafIntents.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>WhatsInTheCafIntentsUI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A30967071BC59D8000B7F240</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A309671B1BC59D8000B7F240</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A30967261BC59D8000B7F240</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A32F18BE1EA9934700B935DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A32F18C71EA9934700B935DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A383F6E91EC3B4BE00F822A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -26,7 +26,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var keyboardOriginRect: CGRect!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -48,6 +47,8 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         } else {
             tableView.addSubview(refreshControl)
         }
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
     }
 
@@ -269,8 +270,12 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! PostCell
         let index = postsToLoad.count - 1 - indexPath.item >= 0 ? postsToLoad.count - indexPath.item - 1 : 0
-        cell.messageTextView.text = postsToLoad[index].message
-        cell.likesTextView.text = String(postsToLoad[index].likes)
+        cell.messageLabel.text = postsToLoad[index].message
+ 
+        cell.messageLabel.sizeToFit()
+        cell.sizeToFit()
+        
+        cell.likesLabel.text = String(postsToLoad[index].likes)
         let date = postsToLoad[index].date
         let dateSinceNow = Int(Date().timeIntervalSince1970) - date
         let dateToDisplay = getRelativeDate(dateSinceNow: dateSinceNow)

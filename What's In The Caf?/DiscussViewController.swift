@@ -172,9 +172,11 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             self.listenForPosts()
         }
         
+        self.activityIndicator.startAnimating()
         grabPosts{ (posts) in
             self.posts = posts
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
         
     }

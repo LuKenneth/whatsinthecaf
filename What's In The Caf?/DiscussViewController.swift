@@ -72,7 +72,12 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     }
     
     func reloadTable() {
-        self.tableView.reloadData()
+        
+        grabPosts{ (posts) in
+            self.posts = posts
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func showLogIn() {
@@ -273,9 +278,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         cell.post = postsToLoad[index]
         cell.table = self.tableView
         
-        if(indexPath.item >= postsToLoad.count - 1 && self.refreshControl.isRefreshing) {
-            self.refreshControl.endRefreshing()
-        }
         return cell
         
     }

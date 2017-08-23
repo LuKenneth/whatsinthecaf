@@ -52,6 +52,11 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
 
     override func viewDidAppear(_ animated: Bool) {
         self.continueWithLoad()
+        
+        if let tabBar = tabBarController?.tabBar {
+            composeText.frame = CGRect(x: composeText.frame.origin.x, y: self.view.frame.size.height - composeText.frame.height - tabBar.frame.height, width: composeText.frame.width, height: composeText.frame.height)
+        }
+        
         let _ = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             
             if FIRAuth.auth()?.currentUser != nil {

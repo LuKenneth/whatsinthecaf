@@ -292,6 +292,16 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         let date = postsToLoad[index].date
         let dateSinceNow = Int(Date().timeIntervalSince1970) - date
         let dateToDisplay = getRelativeDate(dateSinceNow: dateSinceNow)
+        
+        let tooOld = Int(dateSinceNow / (3600 * 24)) >= 7
+        if tooOld {
+            self.ref.child("Posts").child(postsToLoad[index].key).removeValue(completionBlock: { (error, ref) in
+                if error != nil {
+                    print(error as Any)
+                }
+            })
+        }
+        
         cell.timeLabel.text = dateToDisplay
         cell.post = postsToLoad[index]
         cell.table = self.tableView
@@ -319,9 +329,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             if postsToLoad[index].message.characters.count > 90 {
                 return 90
             }
-        }
-        else {
-            print("@@@@@ IT WAS EMPTY DAWG")
         }
         return 70
     }

@@ -48,8 +48,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             tableView.addSubview(refreshControl)
         }
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -273,6 +271,21 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         cell.messageLabel.text = postsToLoad[index].message
  
         cell.messageLabel.sizeToFit()
+        let smallFont = UIFont(name: cell.messageLabel.font.fontName, size: 12.0)
+        let tinyFont = UIFont(name: cell.messageLabel.font.fontName, size: 8.0)
+        let bigFont = UIFont(name: cell.messageLabel.font.fontName, size: 16.0)
+        
+        if let messageText = cell.messageLabel.text {
+            if messageText.characters.count < 40 {
+                cell.messageLabel.font = bigFont
+            }
+            else if messageText.characters.count > 80 {
+                cell.messageLabel.font = smallFont
+            }
+            else if messageText.characters.count > 120 {
+                cell.messageLabel.font = tinyFont
+            }
+        }
         cell.sizeToFit()
         
         cell.likesLabel.text = String(postsToLoad[index].likes)
@@ -289,6 +302,28 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(sortSwitch.selectedSegmentIndex == 0) {
+            postsToLoad = posts
+        }
+        else {
+            
+            postsToLoad = sortedPosts
+        }
+        
+        let index = postsToLoad.count - 1 - indexPath.item >= 0 ? postsToLoad.count - indexPath.item - 1 : 0
+        
+        if postsToLoad[index].message != "" {
+            if postsToLoad[index].message.characters.count > 90 {
+                return 80
+            }
+        }
+        else {
+            print("@@@@@ IT WAS EMPTY DAWG")
+        }
+        return 70
     }
     
     func grabPosts(callback: @escaping ([Post])->()) {

@@ -272,7 +272,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
  
         cell.messageLabel.sizeToFit()
         let smallFont = UIFont(name: cell.messageLabel.font.fontName, size: 12.0)
-        let tinyFont = UIFont(name: cell.messageLabel.font.fontName, size: 8.0)
         let bigFont = UIFont(name: cell.messageLabel.font.fontName, size: 16.0)
         
         if let messageText = cell.messageLabel.text {
@@ -281,9 +280,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
             }
             else if messageText.characters.count > 80 {
                 cell.messageLabel.font = smallFont
-            }
-            else if messageText.characters.count > 120 {
-                cell.messageLabel.font = tinyFont
             }
         }
         cell.sizeToFit()

@@ -317,7 +317,7 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         if postsToLoad[index].message != "" {
             if postsToLoad[index].message.characters.count > 90 {
-                return 80
+                return 90
             }
         }
         else {

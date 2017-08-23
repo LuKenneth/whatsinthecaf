@@ -13,11 +13,12 @@ import Firebase
 class PostCell : UITableViewCell {
     
     
-    @IBOutlet weak var messageTextView: UITextView!
-    @IBOutlet weak var likesTextView: UITextView!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var voteUpButton: UIButton!
     @IBOutlet weak var voteDownButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    
     
     var post:Post!
     var upEnabled:Bool = true

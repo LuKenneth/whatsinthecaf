@@ -26,7 +26,6 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var keyboardOriginRect: CGRect!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -269,11 +268,40 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! PostCell
         let index = postsToLoad.count - 1 - indexPath.item >= 0 ? postsToLoad.count - indexPath.item - 1 : 0
-        cell.messageTextView.text = postsToLoad[index].message
-        cell.likesTextView.text = String(postsToLoad[index].likes)
+        cell.messageLabel.text = postsToLoad[index].message
+ 
+        cell.messageLabel.sizeToFit()
+        let smallFont = UIFont(name: cell.messageLabel.font.fontName, size: 12.0)
+        let tinyFont = UIFont(name: cell.messageLabel.font.fontName, size: 8.0)
+        let bigFont = UIFont(name: cell.messageLabel.font.fontName, size: 16.0)
+        
+        if let messageText = cell.messageLabel.text {
+            if messageText.characters.count < 40 {
+                cell.messageLabel.font = bigFont
+            }
+            else if messageText.characters.count > 80 {
+                cell.messageLabel.font = smallFont
+            }
+            else if messageText.characters.count > 120 {
+                cell.messageLabel.font = tinyFont
+            }
+        }
+        cell.sizeToFit()
+        
+        cell.likesLabel.text = String(postsToLoad[index].likes)
         let date = postsToLoad[index].date
         let dateSinceNow = Int(Date().timeIntervalSince1970) - date
         let dateToDisplay = getRelativeDate(dateSinceNow: dateSinceNow)
+        
+        let tooOld = Int(dateSinceNow / (3600 * 24)) >= 7
+        if tooOld {
+            self.ref.child("Posts").child(postsToLoad[index].key).removeValue(completionBlock: { (error, ref) in
+                if error != nil {
+                    print(error as Any)
+                }
+            })
+        }
+        
         cell.timeLabel.text = dateToDisplay
         cell.post = postsToLoad[index]
         cell.table = self.tableView
@@ -284,6 +312,25 @@ class DiscussViewController: UIViewController, UITableViewDelegate, UITextFieldD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(sortSwitch.selectedSegmentIndex == 0) {
+            postsToLoad = posts
+        }
+        else {
+            
+            postsToLoad = sortedPosts
+        }
+        
+        let index = postsToLoad.count - 1 - indexPath.item >= 0 ? postsToLoad.count - indexPath.item - 1 : 0
+        
+        if postsToLoad[index].message != "" {
+            if postsToLoad[index].message.characters.count > 90 {
+                return 90
+            }
+        }
+        return 70
     }
     
     func grabPosts(callback: @escaping ([Post])->()) {
